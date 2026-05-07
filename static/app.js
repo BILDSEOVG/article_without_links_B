@@ -203,19 +203,133 @@ function escapeHtml(text) {
     return text.replace(/[&<>"']/g, m => map[m]);
 }
 
+// Tab switching
+document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const tabName = btn.getAttribute("data-tab");
+
+        // Update active button
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // Update active content
+        document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+        document.getElementById(tabName).classList.add("active");
+
+        // Load content
+        if (tabName === "tab-first-para") {
+            loadFirstParaStats();
+        }
+    });
+});
+
+async function loadFirstParaStats(category = null) {
+    try {
+        const dateInput = document.getElementById("dateInput");
+        const date = dateInput.value || null;
+
+        let url = "/api/first-paragraph-stats";
+        const params = new URLSearchParams();
+        if (date) params.append("date", date);
+        if (category) params.append("category", category);
+
+        if (params.toString()) {
+            url += "?" + params.toString();
+        }
+
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        const data = await response.json();
+        const stats = data.stats;
+        const categories = data.categories;
+
+        // Update stats cards
+        document.getElementById("fpStatDate").textContent = formatDate(stats.run_date);
+        document.getElementById("fpStatTotal").textContent = stats.total;
+        document.getElementById("fpStatWithLinks").textContent = stats.with_links;
+        document.getElementById("fpStatWithoutLinks").textContent = stats.without_links;
+        document.getElementById("fpStatPercent").textContent = stats.pct_with_links.toFixed(1) + "%";
+
+        // Update category dropdown
+        const select = document.getElementById("categorySelect");
+        const currentValue = select.value;
+        const options = select.querySelectorAll("option:not(:first-child)");
+        options.forEach(o => o.remove());
+
+        Object.keys(categories).sort().forEach(cat => {
+            const option = document.createElement("option");
+            option.value = cat;
+            option.textContent = `${cat} (${categories[cat].total})`;
+            select.appendChild(option);
+        });
+
+        if (select.querySelector(`option[value="${currentValue}"]`)) {
+            select.value = currentValue;
+        }
+
+        // Render category breakdown
+        renderCategoryBreakdown(categories);
+
+    } catch (error) {
+        console.error("Error loading first paragraph stats:", error);
+    }
+}
+
+function renderCategoryBreakdown(categories) {
+    const container = document.getElementById("categoryList");
+    container.innerHTML = "";
+
+    Object.keys(categories).sort().forEach(cat => {
+        const data = categories[cat];
+        const item = document.createElement("div");
+        item.className = "category-item";
+        item.innerHTML = `
+            <div class="category-item-name">${escapeHtml(cat)}</div>
+            <div></div>
+            <div class="category-item-stat">
+                <span class="category-item-stat-label">Gesamt</span>
+                <span class="category-item-stat-value">${data.total}</span>
+            </div>
+            <div class="category-item-stat">
+                <span class="category-item-stat-label">Mit Links</span>
+                <span class="category-item-stat-value">${data.with_links}</span>
+            </div>
+            <div class="category-item-stat">
+                <span class="category-item-stat-label">%</span>
+                <span class="category-item-stat-value">${data.pct_with_links.toFixed(1)}%</span>
+            </div>
+        `;
+        container.appendChild(item);
+    });
+}
+
 // Event listeners
 document.getElementById("runBtn").addEventListener("click", triggerRun);
 
 document.getElementById("dateInput").addEventListener("change", (e) => {
     if (e.target.value) {
         loadStats(e.target.value);
+        loadFirstParaStats();
     } else {
         loadStats();
+        loadFirstParaStats();
     }
+});
+
+document.getElementById("categorySelect").addEventListener("change", (e) => {
+    loadFirstParaStats(e.target.value === "all" ? null : e.target.value);
+});
+
+document.getElementById("expandBtn").addEventListener("click", () => {
+    const select = document.getElementById("categorySelect");
+    select.value = "all";
+    loadFirstParaStats();
 });
 
 // Initial load
 window.addEventListener("load", () => {
     loadStats();
     loadHistory();
+    loadFirstParaStats();
 });

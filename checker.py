@@ -42,6 +42,7 @@ def _init_db():
             url TEXT,
             title TEXT,
             link_count INTEGER,
+            first_paragraph_link_count INTEGER,
             category TEXT,
             published_date TEXT,
             FOREIGN KEY(run_id) REFERENCES runs(id)
@@ -72,6 +73,9 @@ def _scrape_url(url):
         if not main:
             main = soup.find("main")
 
+        link_count = 0
+        first_paragraph_link_count = 0
+
         if main:
             # Check if article is primarily a video (detected by video-teaser in first figure)
             first_figure = main.find("figure")
@@ -84,6 +88,7 @@ def _scrape_url(url):
             # If it's a video article, skip link counting
             if is_video_article:
                 link_count = 0
+                first_paragraph_link_count = 0
             else:
                 # Find all text-link elements in main content
                 text_links = main.find_all("a", class_="text-link")
@@ -106,13 +111,35 @@ def _scrape_url(url):
                         continue
 
                     link_count += 1
-        else:
-            link_count = 0
 
-        return {"url": url, "title": title, "link_count": link_count, "error": None}
+                # Count links in first paragraph
+                first_paragraph = main.find("p")
+                if first_paragraph:
+                    para_links = first_paragraph.find_all("a", class_="text-link")
+                    for link in para_links:
+                        href = link.get("href", "").lower()
+                        # Apply same filters
+                        if "images." not in href and "bildstatic.de" not in href:
+                            parent = link.find_parent("div", class_="video-centre")
+                            if not parent:
+                                first_paragraph_link_count += 1
+
+        return {
+            "url": url,
+            "title": title,
+            "link_count": link_count,
+            "first_paragraph_link_count": first_paragraph_link_count,
+            "error": None
+        }
     except Exception as e:
         logger.error(f"Error scraping {url}: {e}")
-        return {"url": url, "title": "Unknown", "link_count": 0, "error": str(e)}
+        return {
+            "url": url,
+            "title": "Unknown",
+            "link_count": 0,
+            "first_paragraph_link_count": 0,
+            "error": str(e)
+        }
 
 def _fetch_sitemap():
     """Fetch and parse the bild.de news sitemap."""
@@ -228,9 +255,9 @@ def run_check(progress_callback=None):
     for url, result in scraped.items():
         category = _get_category_from_url(url)
         c.execute("""
-            INSERT INTO articles (run_id, url, title, link_count, category, published_date)
-            VALUES (?, ?, ?, ?, ?, ?)
-        """, (run_id, url, result["title"], result["link_count"], category, result.get("published_date", "")))
+            INSERT INTO articles (run_id, url, title, link_count, first_paragraph_link_count, category, published_date)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (run_id, url, result["title"], result["link_count"], result.get("first_paragraph_link_count", 0), category, result.get("published_date", "")))
 
     conn.commit()
     conn.close()

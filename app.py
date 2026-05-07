@@ -67,6 +67,67 @@ def get_progress():
     progress = checker.get_progress()
     return jsonify(progress)
 
+@app.route("/api/first-paragraph-stats")
+def get_first_paragraph_stats():
+    date_str = request.args.get("date")
+    category_filter = request.args.get("category")
+
+    if date_str:
+        stats = checker.get_stats_for_date(date_str)
+    else:
+        stats = checker.get_latest_stats()
+
+    if not stats:
+        return jsonify({"error": "No data available"}), 404
+
+    run_id = stats["id"]
+    articles = checker.get_articles_for_run(run_id)
+
+    # Filter by category if specified
+    if category_filter and category_filter != "all":
+        articles = [a for a in articles if a["category"] == category_filter]
+
+    total = len(articles)
+    with_links_in_first_para = sum(1 for a in articles if a["first_paragraph_link_count"] > 0)
+    without_links_in_first_para = total - with_links_in_first_para
+    pct_with_links = (with_links_in_first_para / total * 100) if total > 0 else 0
+
+    # Get category breakdown
+    category_breakdown = {}
+    for article in checker.get_articles_for_run(run_id):  # Use all articles for categories
+        cat = article["category"]
+        if cat not in category_breakdown:
+            category_breakdown[cat] = {
+                "total": 0,
+                "with_links": 0,
+                "without_links": 0,
+                "pct_with_links": 0
+            }
+        category_breakdown[cat]["total"] += 1
+        if article["first_paragraph_link_count"] > 0:
+            category_breakdown[cat]["with_links"] += 1
+        else:
+            category_breakdown[cat]["without_links"] += 1
+
+    # Calculate percentages for categories
+    for cat in category_breakdown:
+        if category_breakdown[cat]["total"] > 0:
+            category_breakdown[cat]["pct_with_links"] = (
+                category_breakdown[cat]["with_links"] / category_breakdown[cat]["total"] * 100
+            )
+
+    return jsonify({
+        "stats": {
+            "run_date": stats["run_date"],
+            "total": total,
+            "with_links": with_links_in_first_para,
+            "without_links": without_links_in_first_para,
+            "pct_with_links": pct_with_links
+        },
+        "categories": category_breakdown,
+        "selected_category": category_filter or "all"
+    })
+
 def scheduled_check():
     logger.info("Running scheduled check at 6 AM")
     try:
