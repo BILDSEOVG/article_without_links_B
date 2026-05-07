@@ -237,11 +237,6 @@ async function loadLinkStatistics() {
         const ie = data.internal_external;
         const totals = data.totals;
 
-        document.getElementById("totalInternalLinks").textContent = totals.total_internal;
-        document.getElementById("totalExternalLinks").textContent = totals.total_external;
-        document.getElementById("pctInternalLinks").textContent = totals.pct_internal.toFixed(1) + "%";
-        document.getElementById("articlesMoreInternal").textContent = ie.more_internal;
-
         const ctx1 = document.getElementById("linkDistributionChart");
         if (linkDistributionChart) linkDistributionChart.destroy();
 
@@ -265,39 +260,6 @@ async function loadLinkStatistics() {
                         "#4D96FF",
                         "#9D84B7",
                         "#FF8FB1"
-                    ],
-                    borderColor: "white",
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: "bottom"
-                    }
-                }
-            }
-        });
-
-        const ctx2 = document.getElementById("internalExternalChart");
-        if (internalExternalChart) internalExternalChart.destroy();
-
-        internalExternalChart = new Chart(ctx2, {
-            type: "doughnut",
-            data: {
-                labels: ["Mehr interne", "Mehr externe", "Gleich"],
-                datasets: [{
-                    data: [
-                        ie.more_internal,
-                        ie.more_external,
-                        ie.equal
-                    ],
-                    backgroundColor: [
-                        "#667eea",
-                        "#764ba2",
-                        "#ddd"
                     ],
                     borderColor: "white",
                     borderWidth: 2
