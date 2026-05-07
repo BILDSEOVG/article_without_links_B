@@ -47,6 +47,8 @@ def _init_db():
             published_date TEXT,
             is_video INTEGER,
             is_plus_article INTEGER,
+            internal_links INTEGER,
+            external_links INTEGER,
             FOREIGN KEY(run_id) REFERENCES runs(id)
         )
     """)
@@ -87,6 +89,8 @@ def _scrape_url(url):
 
         link_count = 0
         first_paragraph_link_count = 0
+        internal_links = 0
+        external_links = 0
 
         if main and not is_video:
             # Find all text-link elements in main content
@@ -111,6 +115,12 @@ def _scrape_url(url):
 
                 link_count += 1
 
+                # Count internal vs external links
+                if href.startswith("/") or "bild.de" in href:
+                    internal_links += 1
+                else:
+                    external_links += 1
+
             # Count links in first paragraph
             first_paragraph = main.find("p")
             if first_paragraph:
@@ -130,6 +140,8 @@ def _scrape_url(url):
             "first_paragraph_link_count": first_paragraph_link_count,
             "is_video": 1 if is_video else 0,
             "is_plus_article": 1 if is_plus_article else 0,
+            "internal_links": internal_links,
+            "external_links": external_links,
             "error": None
         }
     except Exception as e:
@@ -141,6 +153,8 @@ def _scrape_url(url):
             "first_paragraph_link_count": 0,
             "is_video": 0,
             "is_plus_article": 0,
+            "internal_links": 0,
+            "external_links": 0,
             "error": str(e)
         }
 
@@ -258,9 +272,9 @@ def run_check(progress_callback=None):
     for url, result in scraped.items():
         category = _get_category_from_url(url)
         c.execute("""
-            INSERT INTO articles (run_id, url, title, link_count, first_paragraph_link_count, category, published_date, is_video, is_plus_article)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """, (run_id, url, result["title"], result["link_count"], result.get("first_paragraph_link_count", 0), category, result.get("published_date", ""), result.get("is_video", 0), result.get("is_plus_article", 0)))
+            INSERT INTO articles (run_id, url, title, link_count, first_paragraph_link_count, category, published_date, is_video, is_plus_article, internal_links, external_links)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (run_id, url, result["title"], result["link_count"], result.get("first_paragraph_link_count", 0), category, result.get("published_date", ""), result.get("is_video", 0), result.get("is_plus_article", 0), result.get("internal_links", 0), result.get("external_links", 0)))
 
     conn.commit()
     conn.close()

@@ -67,6 +67,40 @@
             </div>
         </div>
 
+        <div class="link-statistics-section">
+            <h3>Link-Statistiken</h3>
+
+            <div class="stats-row">
+                <div class="chart-box">
+                    <h4>Verteilung nach Link-Anzahl</h4>
+                    <canvas id="linkDistributionChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h4>Interne vs. Externe Links</h4>
+                    <canvas id="internalExternalChart"></canvas>
+                </div>
+            </div>
+
+            <div class="link-summary">
+                <div class="summary-card">
+                    <div class="summary-label">Gesamt interne Links</div>
+                    <div class="summary-value" id="totalInternalLinks">—</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Gesamt externe Links</div>
+                    <div class="summary-value" id="totalExternalLinks">—</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">% Interne</div>
+                    <div class="summary-value" id="pctInternalLinks">—</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Artikel mit mehr internen Links</div>
+                    <div class="summary-value" id="articlesMoreInternal">—</div>
+                </div>
+            </div>
+        </div>
+
         <div class="chart-container">
             <canvas id="trendChart"></canvas>
         </div>

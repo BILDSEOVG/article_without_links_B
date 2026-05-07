@@ -78,6 +78,80 @@ def get_progress():
     progress = checker.get_progress()
     return jsonify(progress)
 
+@app.route("/api/link-statistics")
+def get_link_statistics():
+    date_str = request.args.get("date")
+
+    if date_str:
+        stats = checker.get_stats_for_date(date_str)
+    else:
+        stats = checker.get_latest_stats()
+
+    if not stats:
+        return jsonify({"error": "No data available"}), 404
+
+    run_id = stats["id"]
+    articles = checker.get_articles_for_run(run_id)
+
+    # Link count distribution (pie chart data)
+    link_distribution = {
+        "0_links": 0,
+        "1_link": 0,
+        "2_links": 0,
+        "3_links": 0,
+        "4_links": 0,
+        "5plus_links": 0
+    }
+
+    internal_external_count = {
+        "more_internal": 0,
+        "more_external": 0,
+        "equal": 0
+    }
+
+    for article in articles:
+        if article.get("is_video", 0) == 1:
+            continue
+
+        link_count = article.get("link_count", 0)
+        if link_count == 0:
+            link_distribution["0_links"] += 1
+        elif link_count == 1:
+            link_distribution["1_link"] += 1
+        elif link_count == 2:
+            link_distribution["2_links"] += 1
+        elif link_count == 3:
+            link_distribution["3_links"] += 1
+        elif link_count == 4:
+            link_distribution["4_links"] += 1
+        else:
+            link_distribution["5plus_links"] += 1
+
+        # Count internal vs external
+        internal = article.get("internal_links", 0)
+        external = article.get("external_links", 0)
+        if internal > external:
+            internal_external_count["more_internal"] += 1
+        elif external > internal:
+            internal_external_count["more_external"] += 1
+        else:
+            internal_external_count["equal"] += 1
+
+    # Calculate totals for internal/external
+    total_internal = sum(a.get("internal_links", 0) for a in articles if a.get("is_video", 0) == 0)
+    total_external = sum(a.get("external_links", 0) for a in articles if a.get("is_video", 0) == 0)
+
+    return jsonify({
+        "link_distribution": link_distribution,
+        "internal_external": internal_external_count,
+        "totals": {
+            "total_internal": total_internal,
+            "total_external": total_external,
+            "pct_internal": (total_internal / (total_internal + total_external) * 100) if (total_internal + total_external) > 0 else 0,
+            "pct_external": (total_external / (total_internal + total_external) * 100) if (total_internal + total_external) > 0 else 0
+        }
+    })
+
 @app.route("/api/first-paragraph-stats")
 def get_first_paragraph_stats():
     date_str = request.args.get("date")

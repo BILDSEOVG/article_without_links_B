@@ -1,4 +1,6 @@
 let trendChart = null;
+let linkDistributionChart = null;
+let internalExternalChart = null;
 
 async function loadStats(date = null) {
     try {
@@ -318,9 +320,11 @@ document.getElementById("dateInput").addEventListener("change", (e) => {
     if (e.target.value) {
         loadStats(e.target.value);
         loadFirstParaStats();
+        loadLinkStatistics();
     } else {
         loadStats();
         loadFirstParaStats();
+        loadLinkStatistics();
     }
 });
 
@@ -334,9 +338,113 @@ document.getElementById("expandBtn").addEventListener("click", () => {
     loadFirstParaStats();
 });
 
+async function loadLinkStatistics() {
+    try {
+        const dateInput = document.getElementById("dateInput");
+        const date = dateInput.value || null;
+
+        let url = "/api/link-statistics";
+        if (date) {
+            url += "?date=" + date;
+        }
+
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        const data = await response.json();
+        const dist = data.link_distribution;
+        const ie = data.internal_external;
+        const totals = data.totals;
+
+        // Update summary stats
+        document.getElementById("totalInternalLinks").textContent = totals.total_internal;
+        document.getElementById("totalExternalLinks").textContent = totals.total_external;
+        document.getElementById("pctInternalLinks").textContent = totals.pct_internal.toFixed(1) + "%";
+        document.getElementById("articlesMoreInternal").textContent = ie.more_internal;
+
+        // Link distribution pie chart
+        const ctx1 = document.getElementById("linkDistributionChart");
+        if (linkDistributionChart) linkDistributionChart.destroy();
+
+        linkDistributionChart = new Chart(ctx1, {
+            type: "doughnut",
+            data: {
+                labels: ["0 Links", "1 Link", "2 Links", "3 Links", "4 Links", "5+ Links"],
+                datasets: [{
+                    data: [
+                        dist["0_links"],
+                        dist["1_link"],
+                        dist["2_links"],
+                        dist["3_links"],
+                        dist["4_links"],
+                        dist["5plus_links"]
+                    ],
+                    backgroundColor: [
+                        "#FF6B6B",
+                        "#FFD93D",
+                        "#6BCB77",
+                        "#4D96FF",
+                        "#9D84B7",
+                        "#FF8FB1"
+                    ],
+                    borderColor: "white",
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: "bottom"
+                    }
+                }
+            }
+        });
+
+        // Internal vs external pie chart
+        const ctx2 = document.getElementById("internalExternalChart");
+        if (internalExternalChart) internalExternalChart.destroy();
+
+        internalExternalChart = new Chart(ctx2, {
+            type: "doughnut",
+            data: {
+                labels: ["Mehr interne", "Mehr externe", "Gleich"],
+                datasets: [{
+                    data: [
+                        ie.more_internal,
+                        ie.more_external,
+                        ie.equal
+                    ],
+                    backgroundColor: [
+                        "#667eea",
+                        "#764ba2",
+                        "#ddd"
+                    ],
+                    borderColor: "white",
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: "bottom"
+                    }
+                }
+            }
+        });
+
+    } catch (error) {
+        console.error("Error loading link statistics:", error);
+    }
+}
+
 // Initial load
 window.addEventListener("load", () => {
     loadStats();
     loadHistory();
     loadFirstParaStats();
+    loadLinkStatistics();
 });
