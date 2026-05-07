@@ -1,15 +1,10 @@
 {
   "stats": {
     "run_date": "2026-05-06",
-    "total": 324,
-    "with_links": 167,
-    "without_links": 157,
-    "pct_without_links": 48.45679012345679
-  },
-  "breakdown": {
-    "videos": 67,
-    "plus_articles": 0,
-    "normal_articles": 90
+    "total": 254,
+    "with_links": 166,
+    "without_links": 88,
+    "pct_without_links": 34.645669291338585
   },
   "articles_without_links": [
     {
@@ -23,30 +18,6 @@
       "external_links": 0,
       "error": null,
       "published_date": "2026-05-06T23:33:13+02:00"
-    },
-    {
-      "url": "https://www.bild.de/sport/fussball/graefe-ueber-psg-handspiel-es-ist-alles-nur-noch-eine-farce-69fba69acd4a28c47001ec11",
-      "title": "Gräfe über PSG-Handspiel: „Es ist alles nur noch eine Farce!“",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T23:28:07+02:00"
-    },
-    {
-      "url": "https://www.bild.de/news/ende-der-unsicherheit-mv-hondius-laeuft-richtung-spanien-aus-69fbacefc6d2944c8df6acda",
-      "title": "Ende der Unsicherheit: MV Hondius läuft Richtung Spanien aus",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T23:14:05+02:00"
     },
     {
       "url": "https://www.bild.de/regional/bayern/junge-in-abrisshaus-getoetet-bob-der-baumeister-war-sein-grosser-held-69f8c5b7d3209c4cbd892078",
@@ -157,18 +128,6 @@
       "published_date": "2026-05-06T20:53:34+02:00"
     },
     {
-      "url": "https://www.bild.de/sport/fussball/tuer-an-tuer-dieser-sport-star-war-kovac-nachbar-69f8986cd3209c4cbd891beb",
-      "title": "Tür an Tür: Dieser Sport-Star war Kovac-Nachbar",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T20:53:33+02:00"
-    },
-    {
       "url": "https://www.bild.de/news/ausland/hantavirus-an-bord-so-laeuft-der-transport-mit-dem-isolationsflieger-69fb383e78a5e02b5e7a6147",
       "title": "Hantavirus an Bord: So läuft der Transport mit dem Isolationsflieger",
       "link_count": 0,
@@ -277,54 +236,6 @@
       "published_date": "2026-05-06T19:19:09+02:00"
     },
     {
-      "url": "https://www.bild.de/sport/fussball/aus-komfortzone-gehen-mueller-wendet-sich-direkt-an-die-bayern-fans-69fb758cc6d2944c8df6a8f7",
-      "title": "„Aus Komfortzone gehen\": Müller wendet sich direkt an die Bayern-Fans",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T19:16:26+02:00"
-    },
-    {
-      "url": "https://www.bild.de/leben-wissen/natur-liefert-spektakulaere-show-neon-wolke-faerbt-den-himmel-ein-69f9ecc6c764528c1ad208c8",
-      "title": "Ungewöhnliches Naturphänomen: Neon-Wolke färbt den Himmel ein",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T19:10:06+02:00"
-    },
-    {
-      "url": "https://www.bild.de/news/zoff-um-die-besten-plaetze-aus-tanzduell-wird-klopperei-69fb5e0fc6d2944c8df6a684",
-      "title": "Zoff um die besten Plätze: Aus Tanzduell wird Klopperei",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T19:06:37+02:00"
-    },
-    {
-      "url": "https://www.bild.de/sport/fussball/vor-halbfinale-in-muenchen-psg-ultras-stuermen-marienplatz-69fb6d20c6d2944c8df6a829",
-      "title": "Vor Halbfinale in München: PSG-Ultras stürmen Marienplatz",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T19:01:03+02:00"
-    },
-    {
       "url": "https://www.bild.de/sport/fussball/fcn-beim-edel-franzosen-nuernberg-star-trifft-nationaltrainer-69f1fb911922032097a2e1cb",
       "title": "FCN - Beim Edel-Franzosen: Nürnberg-Star trifft Nationaltrainer",
       "link_count": 0,
@@ -371,18 +282,6 @@
       "external_links": 0,
       "error": null,
       "published_date": "2026-05-06T18:46:15+02:00"
-    },
-    {
-      "url": "https://www.bild.de/politik/der-politik-vodcast-vertraulich-virologe-zu-hanta-virus-keine-pandemie-aber-69fb55a2cd4a28c47001e590",
-      "title": "Der Politik-Vodcast: Vertraulich! Virologe zu Hanta-Virus: „Keine Pandemie, aber...“",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T18:08:32+02:00"
     },
     {
       "url": "https://www.bild.de/sport/fussball/fcn-klose-reagiert-auf-baacks-wechsel-ich-war-auch-ueberrascht-69fb4f7fcd4a28c47001e488",
@@ -433,18 +332,6 @@
       "published_date": "2026-05-06T17:44:07+02:00"
     },
     {
-      "url": "https://www.bild.de/autor/stefan-netzebandt",
-      "title": "Stefan Netzebandt",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 0,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T17:35:45+02:00"
-    },
-    {
       "url": "https://www.bild.de/sport/regionalsport/chef-und-assistent-weg-trainer-knall-beim-mutterklub-von-rb-leipzig-69fb0834cbc6aa7d81ba15d2",
       "title": "Chef und Assistent weg: Trainer-Knall beim Mutterklub von RB Leipzig",
       "link_count": 0,
@@ -455,18 +342,6 @@
       "external_links": 0,
       "error": null,
       "published_date": "2026-05-06T17:32:08+02:00"
-    },
-    {
-      "url": "https://www.bild.de/news/hantavirus-auf-der-hondius-uni-klinik-duesseldorf-testet-evakuierte-69fb4f0f78a5e02b5e7a654a",
-      "title": "Hantavirus auf der Hondius: Uni-Klinik Düsseldorf testet Evakuierte",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T17:31:12+02:00"
     },
     {
       "url": "https://www.bild.de/sport/fussball/mit-preussen-gegen-darmstadt-schwartz-kaempft-um-retter-ruf-69fb37b578a5e02b5e7a6127",
@@ -481,18 +356,6 @@
       "published_date": "2026-05-06T17:22:53+02:00"
     },
     {
-      "url": "https://www.bild.de/politik/ein-jahr-schwarz-rot-diese-politikerin-ist-die-grosse-gewinnerin-69fb48dbc6d2944c8df6a34a",
-      "title": "Ein Jahr Schwarz-Rot: Diese Politikerin ist die große Gewinnerin",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T17:18:33+02:00"
-    },
-    {
       "url": "https://www.bild.de/politik/inland/kerosin-aus-israel-soll-engpaesse-vermeiden-vorrat-reicht-fuer-fuenf-monate-69faec37cbc6aa7d81ba11ad",
       "title": "Kein Engpass? Plötzlich kaufet Deutschland Kerosin aus Israel",
       "link_count": 0,
@@ -503,18 +366,6 @@
       "external_links": 0,
       "error": null,
       "published_date": "2026-05-06T17:03:28+02:00"
-    },
-    {
-      "url": "https://www.bild.de/leben-wissen/manhattan-drama-nypd-reiterpolizist-jagt-mutmassliche-diebin-bodycam-und-tv-filmen-69fb5584cd4a28c47001e586",
-      "title": "Manhattan-Drama: NYPD-Reiterpolizist jagt mutmaßliche Diebin – Bodycam und TV filmen",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T17:01:15+02:00"
     },
     {
       "url": "https://www.bild.de/sport/fussball/hannover96-wie-beim-aufstieg-2017-96-hat-wieder-einen-hammer-69fb0d8578a5e02b5e7a5bb2",
@@ -541,18 +392,6 @@
       "published_date": "2026-05-06T17:00:48+02:00"
     },
     {
-      "url": "https://www.bild.de/leben-wissen/heissluftballon-landet-im-wohngebiet-garten-wird-zur-landebahn-spektakulaere-szene-69fb49af68e679ae0ccd4c15",
-      "title": "Heißluftballon landet im Wohngebiet: Garten wird zur Landebahn – spektakuläre Szene",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T16:48:33+02:00"
-    },
-    {
       "url": "https://www.bild.de/sport/fussball/sv-elversberg-klub-will-zwei-profis-von-bundesligist-69fb1db4cbc6aa7d81ba18ef",
       "title": "SV Elversberg: Klub will zwei Profis von Bundesligist ",
       "link_count": 0,
@@ -563,18 +402,6 @@
       "external_links": 0,
       "error": null,
       "published_date": "2026-05-06T16:46:45+02:00"
-    },
-    {
-      "url": "https://www.bild.de/leben-wissen/waghalsiges-rennen-schwan-zuendet-strassen-turbo-69fb505dcd4a28c47001e4d6",
-      "title": "Waghalsiges Rennen: Schwan zündet Straßen-Turbo",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T16:44:06+02:00"
     },
     {
       "url": "https://www.bild.de/sport/fussball/vertrag-bis-2031-leverkusen-verlaengert-mit-arthur-69fb4ef068e679ae0ccd4d16",
@@ -599,18 +426,6 @@
       "external_links": 0,
       "error": null,
       "published_date": "2026-05-06T16:37:50+02:00"
-    },
-    {
-      "url": "https://www.bild.de/autor/lars-wallrodt",
-      "title": "Lars Wallrodt",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 0,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T16:21:02+02:00"
     },
     {
       "url": "https://www.bild.de/politik/inland/regierungsplan-sabotage-cyber-attacken-ueberwachung-jetzt-werden-unsere-agenten-richtig-gefaehrlich-69fa0e20c764528c1ad20c75",
@@ -649,18 +464,6 @@
       "published_date": "2026-05-06T16:08:06+02:00"
     },
     {
-      "url": "https://www.bild.de/leben-wissen/tanz-der-hirsche-dieser-zweikampf-ist-zum-lachen-69fb480bcd4a28c47001e399",
-      "title": "Tanz der Hirsche: Dieser Zweikampf ist zum Lachen!",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T16:05:15+02:00"
-    },
-    {
       "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-kroesche-erklaert-bundesliga-verbleib-in-frankfurt-69fb014ccbc6aa7d81ba149d",
       "title": "Eintracht Frankfurt: Krösche erklärt Bundesliga-Verbleib in Frankfurt",
       "link_count": 0,
@@ -671,42 +474,6 @@
       "external_links": 0,
       "error": null,
       "published_date": "2026-05-06T16:00:47+02:00"
-    },
-    {
-      "url": "https://www.bild.de/sport/fussball/champions-league-kracher-bayern-gegen-psg-hoeness-und-hainer-ordnen-das-rueckspiel-ein-69fb28ab78a5e02b5e7a5ee5",
-      "title": "Champions League-Kracher Bayern gegen PSG: Hoeneß und Hainer ordnen das Rückspiel ein",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T15:59:46+02:00"
-    },
-    {
-      "url": "https://www.bild.de/news/ausland/todesangst-auf-kreuzfahrtschiff-blogger-fuehrt-durch-die-mv-hondius-69fb403278a5e02b5e7a62b6",
-      "title": "Todesangst auf Kreuzfahrtschiff: Blogger führt durch die „Hondius“",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T15:56:18+02:00"
-    },
-    {
-      "url": "https://www.bild.de/leben-wissen/katze-vs-zement-viral-clip-erobert-tiktok-tapsen-kleben-staunen-69fb4244c6d2944c8df6a20d",
-      "title": "Katze vs. Zement: Viral-Clip erobert TikTok – tapsen, kleben, staunen",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T15:53:01+02:00"
     },
     {
       "url": "https://www.bild.de/leben-wissen/kosten-windraeder-mehr-energie-als-sie-je-liefern-69ede287abfdaf26dabf8e0a",
@@ -721,54 +488,6 @@
       "published_date": "2026-05-06T15:49:40+02:00"
     },
     {
-      "url": "https://www.bild.de/leben-wissen/fledermaeuse-kennen-sie-die-bienen-der-nacht-69fb1f27cbc6aa7d81ba192f",
-      "title": "Fledermäuse: Kennen Sie die „Bienen der Nacht?“",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T15:47:44+02:00"
-    },
-    {
-      "url": "https://www.bild.de/unterhaltung/stars-und-leute/omr-livestream-talk-taste-mit-sally-oezcan-und-montanablack-69fae00bc764528c1ad21a82",
-      "title": "Europas größtes Digital-Festival: Livestream: Heidi Klum im BILD-Talk",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T15:47:00+02:00"
-    },
-    {
-      "url": "https://www.bild.de/news/ueber-10-000-autos-mega-frachter-sprengt-alle-dimensionen-69fb37b1cd4a28c47001e10a",
-      "title": "Über 10.000 Autos: Mega-Frachter sprengt alle Dimensionen",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T15:41:34+02:00"
-    },
-    {
-      "url": "https://www.bild.de/news/ausland/kleiner-nager-grosses-flugchaos-eichhoernchen-stoppt-flugverkehr-69fb0b7478a5e02b5e7a5b64",
-      "title": "Kleiner Nager, großes Flugchaos: Eichhörnchen stoppt Flugverkehr",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T15:27:18+02:00"
-    },
-    {
       "url": "https://www.bild.de/sport/fussball/werder-bremen-hsv-kassiert-beim-coulibaly-verkauf-mit-69f9f743c764528c1ad209f3",
       "title": "Werder Bremen: HSV kassiert beim Coulibaly-Verkauf mit",
       "link_count": 0,
@@ -779,30 +498,6 @@
       "external_links": 0,
       "error": null,
       "published_date": "2026-05-06T15:26:36+02:00"
-    },
-    {
-      "url": "https://www.bild.de/leben-wissen/tiramisu-sensation-in-london-kirche-wird-zur-buehne-440-meter-knacken-weltrekord-69fb3dbdcd4a28c47001e20d",
-      "title": "Tiramisu-Sensation in London: Kirche wird zur Bühne – 440 Meter knacken Weltrekord",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T15:26:20+02:00"
-    },
-    {
-      "url": "https://www.bild.de/news/ausland/power-nap-contest-kurioser-wettbewerb-im-park-69fb2a89cbc6aa7d81ba1a58",
-      "title": "Power Nap Contest: Kurioser Wettbewerb im Park",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T15:22:41+02:00"
     },
     {
       "url": "https://www.bild.de/unterhaltung/bildgg/montanablack-sally-oezcan-ueber-aufdringliche-fans-nachts-klingelte-eine-fremde-frau-69fb16c3c6d2944c8df69c56",
@@ -817,90 +512,6 @@
       "published_date": "2026-05-06T15:10:00+02:00"
     },
     {
-      "url": "https://www.bild.de/sport/fussball/von-brady-rasiert-so-sieht-zlatan-nicht-mehr-aus-69fb016ec6d2944c8df6987b",
-      "title": "Von Brady rasiert: SO sieht Zlatan nicht mehr aus!",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T15:01:37+02:00"
-    },
-    {
-      "url": "https://www.bild.de/sport/fussball/pannen-hilfe-auf-dem-platz-fussballprofis-zeigen-ploetzlich-wahre-groesse-69fb0295c6d2944c8df698aa",
-      "title": "Pannen-Hilfe auf dem Platz: Fußballprofis zeigen plötzlich wahre Größe",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T14:56:25+02:00"
-    },
-    {
-      "url": "https://www.bild.de/sport/fussball/fiese-faekal-flut-ekel-alarm-am-wm-flughafen-69fb02d3c6d2944c8df698b6",
-      "title": "Fiese Fäkal-Flut: Ekel-Alarm am WM-Flughafen",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T14:56:21+02:00"
-    },
-    {
-      "url": "https://www.bild.de/sport/fussball/er-darf-immer-wieder-ran-drei-elfer-null-tore-69fb01e6c6d2944c8df69895",
-      "title": "Er darf immer wieder ran ...: Drei Elfer! Null Tore!",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T14:56:18+02:00"
-    },
-    {
-      "url": "https://www.bild.de/unterhaltung/suesser-nachwuchs-im-bronx-zoo-so-niedlich-schmusen-lemuren-69fafda778a5e02b5e7a593d",
-      "title": "Süßer Nachwuchs im Bronx Zoo: So niedlich schmusen Lemuren",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T14:55:41+02:00"
-    },
-    {
-      "url": "https://www.bild.de/leben-wissen/deutschland-im-erdbeer-rausch-sommers-suesseste-verfuehrung-6827473bdce96874a8fe3400",
-      "title": "Deutschland im Erdbeer-Rausch: Sommers süßeste Verführung",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T14:54:23+02:00"
-    },
-    {
-      "url": "https://www.bild.de/leben-wissen/macht-stress-echt-graue-haare-67079535c0b6da54f5657a0a",
-      "title": "Macht Stress echt graue Haare?",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T14:54:07+02:00"
-    },
-    {
       "url": "https://www.bild.de/leben-wissen/medizin/hantavirus-auf-mv-hondrius-wie-steckt-man-sich-an-69f9c2b196fe1372395e9ffe",
       "title": "Hantavirus auf MV Hondrius: Wie steckt man sich an?",
       "link_count": 0,
@@ -911,66 +522,6 @@
       "external_links": 0,
       "error": null,
       "published_date": "2026-05-06T14:46:18+02:00"
-    },
-    {
-      "url": "https://www.bild.de/unterhaltung/was-ist-denn-das-mann-praesentiert-merkwuerdigen-katzen-hut-69fb32dccbc6aa7d81ba1b4b",
-      "title": "Was ist denn das?: Mann präsentiert merkwürdigen Katzen-Hut",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T14:44:40+02:00"
-    },
-    {
-      "url": "https://www.bild.de/sport/fussball/mehr-follower-als-goretzka-afrika-superstar-schiesst-tor-des-jahres-69fb01a6c6d2944c8df69888",
-      "title": "Mehr Follower als Goretzka: Afrika-Superstar schießt Tor des Jahres",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T14:43:37+02:00"
-    },
-    {
-      "url": "https://www.bild.de/sport/fussball/torschuetze-nutzt-tv-moment-fuer-dreiste-eigenwerbung-69fb00cdcbc6aa7d81ba1486",
-      "title": "Torschütze nutzt TV-Moment für dreiste Eigenwerbung",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T14:43:26+02:00"
-    },
-    {
-      "url": "https://www.bild.de/unterhaltung/new-yorks-winziges-haus-auf-long-island-verbluefft-ohne-schlafzimmer-drei-meter-breit-69fb2f6ac6d2944c8df69ef8",
-      "title": "New Yorks winziges Haus auf Long Island verblüfft: ohne Schlafzimmer, drei Meter breit",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T14:38:11+02:00"
-    },
-    {
-      "url": "https://www.bild.de/leben-wissen/isabell-horns-ueber-neue-sehnsuechte-in-ihrer-offenen-beziehung-69f9dcfe28c8b45865918a0e",
-      "title": "Isabell Horns über neue Sehnsüchte in ihrer offenen Beziehung.",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T14:38:06+02:00"
     },
     {
       "url": "https://www.bild.de/sport/fussball/tsg-hoffenheim-abrechnung-von-tsg-boss-schicker-nach-putsch-versuch-69fb14cec6d2944c8df69c2e",
@@ -995,18 +546,6 @@
       "external_links": 0,
       "error": null,
       "published_date": "2026-05-06T14:26:14+02:00"
-    },
-    {
-      "url": "https://www.bild.de/sport/fussball/arsenal-zieht-ins-champions-league-finale-atletico-tobt-ueber-sieberts-pfiff-69fb1922c6d2944c8df69c92",
-      "title": "Arsenal zieht ins Champions-League-Finale: Atlético tobt über Sieberts Pfiff",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T14:20:58+02:00"
     },
     {
       "url": "https://www.bild.de/sport/fussball/kickers-offenbach-nach-rettung-kuendigt-piekenhagen-veraenderungen-an-69f9e392e58bc39ac6b11f72",
@@ -1045,18 +584,6 @@
       "published_date": "2026-05-06T14:01:57+02:00"
     },
     {
-      "url": "https://www.bild.de/leben-wissen/isabell-horn-packt-aus-waere-auch-schoen-wenn-mir-mal-eine-frau-schreibt-69f9eb91cd4a28c47001c52e",
-      "title": "Isabell Horn packt aus: „Wäre auch schön, wenn mir mal eine Frau schreibt“",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T13:57:39+02:00"
-    },
-    {
       "url": "https://www.bild.de/regional/nordrhein-westfalen/paechter-erdrosselt-ist-diese-pension-das-motiv-fuer-einen-mord-69f8899b23e6b3dbf3c988a8",
       "title": "Pächter erdrosselt: Ist diese Pension das Motiv für einen Mord?",
       "link_count": 0,
@@ -1067,42 +594,6 @@
       "external_links": 0,
       "error": null,
       "published_date": "2026-05-06T13:57:12+02:00"
-    },
-    {
-      "url": "https://www.bild.de/news/traurige-gewissheit-auf-den-philippinen-meeres-riese-endet-leblos-im-sand-69fb18d0c6d2944c8df69c84",
-      "title": "Traurige Gewissheit auf den Philippinen: Meeres-Riese endet leblos im Sand",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T13:50:20+02:00"
-    },
-    {
-      "url": "https://www.bild.de/politik/inland/rente-stuetze-arbeitszeiten-livestream-jetzt-wird-baerbel-bas-gegrillt-69fb1903c6d2944c8df69c8a",
-      "title": "Rente, Stütze, Arbeitszeiten: Livestream: Jetzt wird Bärbel Bas gegrillt",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T13:48:02+02:00"
-    },
-    {
-      "url": "https://www.bild.de/news/omr-europas-groesstes-digital-festival-digital-minister-karsten-wildberger-im-bild-talk-69fb0681cbc6aa7d81ba158c",
-      "title": "OMR: Europas größtes Digital-Festival: Digital-Minister Karsten Wildberger im BILD-Talk",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T13:38:59+02:00"
     },
     {
       "url": "https://www.bild.de/regional/dresden/behoerdenversagen-in-sachsen-22-jahre-planung-fuer-3-km-strasse-ueber-feld-69ef5c7cbb738f64ea7800fc",
@@ -1213,42 +704,6 @@
       "published_date": "2026-05-06T12:50:17+02:00"
     },
     {
-      "url": "https://www.bild.de/leben-wissen/billige-kopfhoerer-aus-dem-urlaub-das-ist-der-unterschied-zu-den-apple-airpods-69f34b89c30a7583e7733ded",
-      "title": "Billige Kopfhörer aus dem Urlaub: Das ist der Unterschied zu den Apple AirPods",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T12:35:54+02:00"
-    },
-    {
-      "url": "https://www.bild.de/news/inland/ein-12-uhr-moment-im-video-hier-knallt-der-spritpreis-rauf-69f46e88ce673f8cd2abb15c",
-      "title": "Ein 12-Uhr-Moment im Video: Hier knallt der Spritpreis rauf",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T12:34:30+02:00"
-    },
-    {
-      "url": "https://www.bild.de/unterhaltung/stars-und-leute/michelle-und-eric-philippi-trennen-sich-ploetzliches-exklusives-liebes-aus-69f48a28ce673f8cd2abb3da",
-      "title": "Michelle und Eric Philippi trennen sich: Plötzliches, exklusives Liebes-Aus",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T12:33:00+02:00"
-    },
-    {
       "url": "https://www.bild.de/sport/mehr-sport/eishockey-noebels-wechselt-nach-koeln-eisbaeren-feiern-auf-mallorca-69f9db1acd4a28c47001c34c",
       "title": "Eishockey: Noebels wechselt nach Köln: Eisbären feiern auf Mallorca",
       "link_count": 0,
@@ -1259,18 +714,6 @@
       "external_links": 0,
       "error": null,
       "published_date": "2026-05-06T12:26:48+02:00"
-    },
-    {
-      "url": "https://www.bild.de/news/ausland/spanien-freut-sich-ueber-orang-utan-baby-neugeborenes-affen-baby-kuschelt-mit-mama-69ea3dad79eaea7df39de2f5",
-      "title": "Spanien freut sich über Orang-Utan-Baby: Neugeborenes Affen-Baby kuschelt mit Mama",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T12:25:11+02:00"
     },
     {
       "url": "https://www.bild.de/sport/fussball/wie-die-familie-jetzt-denkt-el-mala-mama-zockt-auf-diesen-deal-69fadc2cc6d2944c8df694d2",
@@ -1333,30 +776,6 @@
       "published_date": "2026-05-06T12:06:41+02:00"
     },
     {
-      "url": "https://www.bild.de/leben-wissen/tv-tradition-in-schweden-diese-elche-begeistern-millionen-69fa592ac764528c1ad21267",
-      "title": "TV-Tradition in Schweden: Diese Elche begeistern Millionen",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T11:57:55+02:00"
-    },
-    {
-      "url": "https://www.bild.de/leben-wissen/wie-ein-profi-dieser-otter-liebt-ballspielen-69f25476052adba8a89e4bc3",
-      "title": "Wie ein Profi!: Dieser Otter liebt Ballspielen",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T11:57:45+02:00"
-    },
-    {
       "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-darum-ist-albert-riera-als-trainer-gescheitert-zoff-mit-stars-in-der-kabine-69f9aea323e6b3dbf3c99752",
       "title": "Eintracht Frankfurt: Darum ist Albert Riera als Trainer gescheitert  – Zoff mit Stars in der Kabine!",
       "link_count": 0,
@@ -1367,42 +786,6 @@
       "external_links": 0,
       "error": null,
       "published_date": "2026-05-06T11:51:57+02:00"
-    },
-    {
-      "url": "https://www.bild.de/leben-wissen/was-fuer-ein-moment-drohne-fliegt-gelaehmten-papagei-69f346b06ae0ff2bebbd3d42",
-      "title": "Was für ein Moment: Drohne fliegt gelähmten Papagei",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T11:51:07+02:00"
-    },
-    {
-      "url": "https://www.bild.de/leben-wissen/im-zoo-halle-gibt-es-seltenen-nachwuchs-ein-wombat-baby-ist-geboren-69eb7f75dc13b3d82c22dbde",
-      "title": "Im Zoo Halle gibt es seltenen Nachwuchs: Ein Wombat Baby ist geboren",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T11:50:48+02:00"
-    },
-    {
-      "url": "https://www.bild.de/sport/fussball/trainer-chaos-in-frankfurt-alex-meier-sitzt-am-letzten-spieltag-auf-der-bank-69fa0946cd4a28c47001c8b3",
-      "title": "Trainer-Chaos in Frankfurt: „Alex Meier sitzt am letzten Spieltag auf der Bank“",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T11:36:09+02:00"
     },
     {
       "url": "https://www.bild.de/sport/fussball/greuther-fuerth-bei-abstieg-futkeu-droht-trauriger-rekord-69f892fa23e6b3dbf3c989eb",
@@ -1465,42 +848,6 @@
       "published_date": "2026-05-06T11:26:39+02:00"
     },
     {
-      "url": "https://www.bild.de/unterhaltung/nach-yellowstone-dutton-ranch-startet-bei-paramount-am-15-mai-trailer-im-video-69f99af596fe1372395e9bdf",
-      "title": "Nach „Yellowstone“: „Dutton Ranch“ startet bei Paramount+ am 15. Mai – Trailer im Video",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T11:17:50+02:00"
-    },
-    {
-      "url": "https://www.bild.de/leben-wissen/mein-geld-finanzportal/so-hilft-das-neue-renten-depot-beim-hauskauf-69fb06fec6d2944c8df69961",
-      "title": "So hilft das neue Renten-Depot beim Hauskauf",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T11:16:52+02:00"
-    },
-    {
-      "url": "https://www.bild.de/leben-wissen/mein-geld-finanzportal/so-hilft-das-neue-renten-depot-beim-hauskauf-69f9b24296fe1372395e9e30",
-      "title": "So hilft das neue Renten-Depot beim Hauskauf",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T11:15:11+02:00"
-    },
-    {
       "url": "https://www.bild.de/sport/fussball/dynamo-dresden-premier-league-klub-heiss-auf-diesen-profi-69f84e8923e6b3dbf3c98347",
       "title": "Dynamo Dresden: Premier-League-Klub heiß auf diesen Profi",
       "link_count": 0,
@@ -1513,18 +860,6 @@
       "published_date": "2026-05-06T11:08:24+02:00"
     },
     {
-      "url": "https://www.bild.de/unterhaltung/stars-und-leute/600-dollar-bargeld-beim-restaurieren-in-alter-kommode-gefunden-69f87a6823e6b3dbf3c98704",
-      "title": "600 Dollar Bargeld beim Restaurieren in alter Kommode gefunden",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T11:07:44+02:00"
-    },
-    {
       "url": "https://www.bild.de/sport/fussball/sc-freiburg-nils-petersen-verraet-julian-schusters-erfolgsgeheimnis-69fa62dccd4a28c47001cfab",
       "title": "SC Freiburg: Nils Petersen verrät Julian Schusters Erfolgsgeheimnis ",
       "link_count": 0,
@@ -1535,18 +870,6 @@
       "external_links": 0,
       "error": null,
       "published_date": "2026-05-06T11:02:38+02:00"
-    },
-    {
-      "url": "https://www.bild.de/unterhaltung/royals-adel/nicht-nur-krone-auch-kaserne-prinzessin-leonor-duest-im-jet-69faeed7cbc6aa7d81ba11ed",
-      "title": "Nicht nur Krone, auch Kaserne: Prinzessin Leonor düst im Jet",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T10:44:53+02:00"
     },
     {
       "url": "https://www.bild.de/sport/fussball/hannover96-aufregung-bei-96-erfolgstrainer-vor-wechsel-nach-england-69f9fdddc764528c1ad20a91",
@@ -1585,78 +908,6 @@
       "published_date": "2026-05-06T10:03:36+02:00"
     },
     {
-      "url": "https://www.bild.de/news/tragoedie-in-kolumbien-drei-tote-bei-monstertruck-show-69f8738d6fe2dee7bfb122b7",
-      "title": "Tragödie in Kolumbien: Drei Tote bei Monstertruck-Show",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T09:59:50+02:00"
-    },
-    {
-      "url": "https://www.bild.de/unterhaltung/film-kino/die-odyssee-neuer-trailer-zum-naechsten-film-von-nolan-ab-16-juli-im-kino-69f9ba2c472693c1c1ff25ab",
-      "title": " „Die Odyssee“: Neuer Trailer zum nächsten Film von Nolan – ab 16. Juli im Kino",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T09:54:04+02:00"
-    },
-    {
-      "url": "https://www.bild.de/news/inland/3-5-tonnen-schweres-auto-landet-in-der-kueche-kurioser-unfall-in-nrw-69fad9c2c764528c1ad219c9",
-      "title": "3,5 Tonnen schweres Auto landet in der Küche – kurioser Unfall in NRW",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T09:52:27+02:00"
-    },
-    {
-      "url": "https://www.bild.de/news/ausland/roboter-bekommt-eigenen-sitzplatz-und-sorgt-fuer-flugverspaetung-69f9a45696fe1372395e9ca6",
-      "title": "Roboter bekommt eigenen Sitzplatz und sorgt für Flugverspätung",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T09:51:05+02:00"
-    },
-    {
-      "url": "https://www.bild.de/sport/fussball/achten-sie-mal-auf-karius-so-wild-gehts-auf-dem-schalker-party-boot-zu-69fa516ca7ce0ad4a07f0bef",
-      "title": "Achten Sie mal auf Karius!: So wild geht‘s auf dem Schalker Party-Boot zu",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T09:40:04+02:00"
-    },
-    {
-      "url": "https://www.bild.de/news/hantavirus-ausbruch-an-bord-livestream-kreuzfahrtschiff-hondius-vor-kap-verde-69fae3f8c764528c1ad21afd",
-      "title": "Hantavirus-Ausbruch an Bord: Livestream: Kreuzfahrtschiff „Hondius“ vor Kap Verde",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T09:34:59+02:00"
-    },
-    {
       "url": "https://www.bild.de/sport/fussball/fc-schalke-04-das-aufstiegstagebuch-alle-geheimnisse-der-bundesliga-rueckkehr-69f9eb5ac764528c1ad2088d",
       "title": "FC Schalke 04: Das Aufstiegstagebuch – Alle Geheimnisse der Bundesliga-Rückkehr! ",
       "link_count": 0,
@@ -1669,30 +920,6 @@
       "published_date": "2026-05-06T09:02:49+02:00"
     },
     {
-      "url": "https://www.bild.de/news/ausland/action-in-der-stierkampf-arena-spanische-polizei-weiss-wie-man-nachwuchs-gewinnt-69fade84cd4a28c47001d6fb",
-      "title": "Action in der Stierkampf-Arena: Spanische Polizei weiß, wie man Nachwuchs gewinnt",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T08:54:00+02:00"
-    },
-    {
-      "url": "https://www.bild.de/sport/fussball/u15-hollanddeutschland-69fae24acd4a28c47001d754",
-      "title": "Bei der U15: Drei Hertha-Bubis feiern Deutschland-Premiere",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T08:49:20+02:00"
-    },
-    {
       "url": "https://www.bild.de/regional/frankfurt/prozess-hallo-ich-bin-der-m-ich-habe-einen-mann-getoetet-69f860a8123c5d78227c04d0",
       "title": "Prozess: Als die Fessel weg war, tötete er den Neuen seiner Ex",
       "link_count": 0,
@@ -1703,30 +930,6 @@
       "external_links": 0,
       "error": null,
       "published_date": "2026-05-06T08:48:29+02:00"
-    },
-    {
-      "url": "https://www.bild.de/unterhaltung/bushido-ueber-seinen-weg-aus-der-dubai-krise-ich-habe-jeden-tag-therapie-gehabt-69f9ef8828c8b45865918c68",
-      "title": "Bushido über seinen Weg aus der Krise: „Ich habe jeden Tag Therapie gehabt“",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T08:07:20+02:00"
-    },
-    {
-      "url": "https://www.bild.de/leben-wissen/die-eisheiligen-2026-wann-sie-kommen-und-warum-es-nochmal-kalt-wird-69e0bbde04fccc11ef079f53",
-      "title": "Die Eisheiligen 2026: Wann sie kommen – und warum es nochmal kalt wird",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T08:04:12+02:00"
     },
     {
       "url": "https://www.bild.de/sport/fussball/streaming-webseite-blockiert-bundesliga-und-dazn-mit-schlag-gegen-piraten-69f89c4bd3209c4cbd891c85",
@@ -1849,30 +1052,6 @@
       "published_date": "2026-05-06T01:04:30+02:00"
     },
     {
-      "url": "https://www.bild.de/leben-wissen/mein-geld-finanzportal/aus-10-000-werden-150-000-so-zuenden-sie-den-geld-turbo-69f9b25c96fe1372395e9e36",
-      "title": "Aus 10.000 werden 150.000! So zünden Sie den Geld-Turbo",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T01:00:09+02:00"
-    },
-    {
-      "url": "https://www.bild.de/leben-wissen/mein-geld-finanzportal/erst-fluege-dann-ihr-erspartes-das-sind-die-folgen-der-oelkrise-69f9b26d96fe1372395e9e3c",
-      "title": "Erst Flüge, dann Ihr Erspartes? Das sind die Folgen der Ölkrise",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T01:00:09+02:00"
-    },
-    {
       "url": "https://www.bild.de/sonstiges/bildplus-gewinnspiele-aktionen/zu-star-wars-the-mandalorian-and-grogu-special-menues-von-burger-king-69ef32c0e2f6ed7a5d888c34",
       "title": "Zu Star Wars: The Mandalorian and Grogu: Special-Menüs von Burger King",
       "link_count": 0,
@@ -1883,24 +1062,12 @@
       "external_links": 0,
       "error": null,
       "published_date": "2026-05-06T00:00:08+02:00"
-    },
-    {
-      "url": "https://www.bild.de/sport/fussball/bei-tottenham-abstieg-was-wird-aus-vuskovic-69f9ef15c764528c1ad2091b",
-      "title": "Bei Tottenham-Abstieg: Was wird aus Vuskovic?",
-      "link_count": 0,
-      "first_paragraph_link_count": 0,
-      "is_video": 1,
-      "is_plus_article": 0,
-      "internal_links": 0,
-      "external_links": 0,
-      "error": null,
-      "published_date": "2026-05-06T00:00:08+02:00"
     }
   ],
   "link_distribution": {
-    "0_links": 90,
+    "0_links": 88,
     "1_link": 20,
-    "2_links": 44,
+    "2_links": 43,
     "3_links": 42,
     "4_links": 28,
     "5plus_links": 33
@@ -1908,38 +1075,32 @@
   "internal_external": {
     "more_internal": 154,
     "more_external": 9,
-    "equal": 94
+    "equal": 91
   },
   "totals": {
-    "total_internal": 506,
-    "total_external": 70,
-    "pct_internal": 87.84722222222221
+    "total_internal": 505,
+    "total_external": 69,
+    "pct_internal": 87.97909407665504
   },
   "first_paragraph": {
     "stats": {
       "run_date": "2026-05-06",
-      "total": 324,
-      "with_links": 2,
-      "without_links": 322,
-      "pct_with_links": 0.6172839506172839
+      "total": 254,
+      "with_links": 1,
+      "without_links": 253,
+      "pct_with_links": 0.39370078740157477
     },
     "categories": {
       "unterhaltung": {
-        "total": 54,
+        "total": 44,
         "with_links": 0,
-        "without_links": 54,
+        "without_links": 44,
         "pct_with_links": 0.0
       },
       "sport": {
-        "total": 120,
+        "total": 104,
         "with_links": 0,
-        "without_links": 120,
-        "pct_with_links": 0.0
-      },
-      "news": {
-        "total": 36,
-        "with_links": 0,
-        "without_links": 36,
+        "without_links": 104,
         "pct_with_links": 0.0
       },
       "regional": {
@@ -1955,9 +1116,9 @@
         "pct_with_links": 0.0
       },
       "leben-wissen": {
-        "total": 55,
+        "total": 33,
         "with_links": 0,
-        "without_links": 55,
+        "without_links": 33,
         "pct_with_links": 0.0
       },
       "sonstiges": {
@@ -1967,16 +1128,16 @@
         "pct_with_links": 0.0
       },
       "politik": {
-        "total": 33,
+        "total": 30,
         "with_links": 1,
-        "without_links": 32,
-        "pct_with_links": 3.0303030303030303
+        "without_links": 29,
+        "pct_with_links": 3.3333333333333335
       },
-      "autor": {
-        "total": 3,
-        "with_links": 1,
-        "without_links": 2,
-        "pct_with_links": 33.33333333333333
+      "news": {
+        "total": 20,
+        "with_links": 0,
+        "without_links": 20,
+        "pct_with_links": 0.0
       },
       "service": {
         "total": 3,
@@ -1985,5 +1146,40 @@
         "pct_with_links": 0.0
       }
     }
+  },
+  "autorenseiten": {
+    "stats": {
+      "run_date": "2026-05-06",
+      "total": 3,
+      "with_links": 1,
+      "without_links": 2,
+      "pct_without_links": 66.66666666666666
+    },
+    "articles_without_links": [
+      {
+        "url": "https://www.bild.de/autor/stefan-netzebandt",
+        "title": "Stefan Netzebandt",
+        "link_count": 0,
+        "first_paragraph_link_count": 0,
+        "is_video": 0,
+        "is_plus_article": 0,
+        "internal_links": 0,
+        "external_links": 0,
+        "error": null,
+        "published_date": "2026-05-06T17:35:45+02:00"
+      },
+      {
+        "url": "https://www.bild.de/autor/lars-wallrodt",
+        "title": "Lars Wallrodt",
+        "link_count": 0,
+        "first_paragraph_link_count": 0,
+        "is_video": 0,
+        "is_plus_article": 0,
+        "internal_links": 0,
+        "external_links": 0,
+        "error": null,
+        "published_date": "2026-05-06T16:21:02+02:00"
+      }
+    ]
   }
 }

@@ -37,12 +37,6 @@ async function loadStats(date = null) {
         document.getElementById("statWithoutLinks").textContent = stats.without_links;
         document.getElementById("statPercent").textContent = stats.pct_without_links.toFixed(1) + "%";
 
-        if (data.breakdown) {
-            document.getElementById("breakdownVideos").textContent = data.breakdown.videos;
-            document.getElementById("breakdownPlus").textContent = data.breakdown.plus_articles;
-            document.getElementById("breakdownNormal").textContent = data.breakdown.normal_articles;
-        }
-
         const tbody = document.getElementById("articlesBody");
         tbody.innerHTML = "";
 
@@ -401,10 +395,12 @@ document.getElementById("dateInput").addEventListener("change", (e) => {
         loadStats(e.target.value);
         loadFirstParaStats();
         loadLinkStatistics();
+        loadAutorenseiten(e.target.value);
     } else {
         loadStats();
         loadFirstParaStats();
         loadLinkStatistics();
+        loadAutorenseiten();
     }
 });
 
@@ -418,9 +414,72 @@ document.getElementById("expandBtn").addEventListener("click", () => {
     loadFirstParaStats();
 });
 
+async function loadAutorenseiten(date = null) {
+    try {
+        let dataFile = date;
+        if (!date) {
+            if (allHistory.length === 0) {
+                await loadHistory();
+            }
+            if (allHistory.length > 0) {
+                dataFile = allHistory[allHistory.length - 1].run_date;
+            }
+        }
+
+        if (!dataFile) {
+            document.getElementById("autorArticlesTable").style.display = "none";
+            document.getElementById("autorNoDataMsg").style.display = "block";
+            return;
+        }
+
+        const response = await fetch(`./data/${dataFile}.json`);
+        if (!response.ok) {
+            document.getElementById("autorArticlesTable").style.display = "none";
+            document.getElementById("autorNoDataMsg").style.display = "block";
+            return;
+        }
+
+        const data = await response.json();
+        const stats = data.autorenseiten.stats;
+        const articles = data.autorenseiten.articles_without_links;
+
+        document.getElementById("autorStatDate").textContent = formatDate(stats.run_date);
+        document.getElementById("autorStatTotal").textContent = stats.total;
+        document.getElementById("autorStatWithLinks").textContent = stats.total - stats.without_links;
+        document.getElementById("autorStatWithoutLinks").textContent = stats.without_links;
+        document.getElementById("autorStatPercent").textContent = stats.pct_without_links.toFixed(1) + "%";
+
+        const tbody = document.getElementById("autorArticlesBody");
+        tbody.innerHTML = "";
+
+        if (articles.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: #999;">Alle Autorenseiten haben Links</td></tr>';
+        } else {
+            articles.forEach(article => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td><strong>${escapeHtml(article.title)}</strong></td>
+                    <td>${escapeHtml(article.category || 'unknown')}</td>
+                    <td>${formatDateTimeShort(article.published_date)}</td>
+                    <td><a href="${article.url}" target="_blank">Link ↗</a></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        document.getElementById("autorNoDataMsg").style.display = "none";
+        document.getElementById("autorArticlesTable").style.display = "table";
+    } catch (error) {
+        console.error("Error loading autorenseiten:", error);
+        document.getElementById("autorArticlesTable").style.display = "none";
+        document.getElementById("autorNoDataMsg").style.display = "block";
+    }
+}
+
 window.addEventListener("load", () => {
     loadStats();
     loadHistory();
     loadFirstParaStats();
     loadLinkStatistics();
+    loadAutorenseiten();
 });

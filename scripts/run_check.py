@@ -20,9 +20,16 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
 def _get_category_from_url(url):
     path = urlparse(url).path
     parts = path.split('/')
-    if len(parts) > 1 and parts[1]:
-        return parts[1]
+    if len(parts) > 1:
+        if parts[1] == "autor":
+            return "autor"
+        elif parts[1]:
+            return parts[1]
     return "other"
+
+def _is_autor_page(url):
+    path = urlparse(url).path
+    return "/autor/" in path
 
 def _scrape_url(url):
     try:
@@ -182,19 +189,37 @@ def run_check():
 
     scraped = _scrape_articles_parallel(yesterday_articles)
 
-    total = len(scraped)
-    with_links = sum(1 for r in scraped.values() if r["link_count"] > 0)
-    without_links = total - with_links
-    pct_without_links = (without_links / total * 100) if total > 0 else 0
+    # Separate autor pages from regular articles
+    autor_articles = {url: data for url, data in scraped.items() if _is_autor_page(url)}
+    regular_articles = {url: data for url, data in scraped.items() if not _is_autor_page(url)}
+
+    # Free-Artikel statistics (excluding videos and plus articles)
+    free_articles = {url: data for url, data in regular_articles.items()
+                     if data.get("is_video", 0) == 0 and data.get("is_plus_article", 0) == 0}
+    free_total = len(free_articles)
+    free_with_links = sum(1 for r in free_articles.values() if r["link_count"] > 0)
+    free_without_links = free_total - free_with_links
+    free_pct_without_links = (free_without_links / free_total * 100) if free_total > 0 else 0
+
+    # Keep old variable names for compatibility
+    total = free_total
+    with_links = free_with_links
+    without_links = free_without_links
+    pct_without_links = free_pct_without_links
+
+    # Autor pages statistics
+    autor_total = len(autor_articles)
+    autor_with_links = sum(1 for r in autor_articles.values() if r["link_count"] > 0)
+    autor_without_links = autor_total - autor_with_links
+    autor_pct_without_links = (autor_without_links / autor_total * 100) if autor_total > 0 else 0
 
     yesterday = datetime.now(TZ_BERLIN) - timedelta(days=1)
     run_date = yesterday.date().isoformat()
 
-    no_link_articles = [a for a in scraped.values() if a["link_count"] == 0]
-    videos_without_links = [a for a in no_link_articles if a.get("is_video", 0) == 1]
-    plus_articles_without_links = [a for a in no_link_articles if a.get("is_plus_article", 0) == 1 and a.get("is_video", 0) == 0]
-    normal_articles_without_links = [a for a in no_link_articles if a.get("is_video", 0) == 0 and a.get("is_plus_article", 0) == 0]
+    # Free-Artikel without links
+    no_link_articles = [a for a in free_articles.values() if a["link_count"] == 0]
 
+    # Link distribution for regular articles (excluding videos)
     link_distribution = {
         "0_links": 0,
         "1_link": 0,
@@ -210,10 +235,7 @@ def run_check():
         "equal": 0
     }
 
-    for article in scraped.values():
-        if article.get("is_video", 0) == 1:
-            continue
-
+    for article in free_articles.values():
         link_count = article.get("link_count", 0)
         if link_count == 0:
             link_distribution["0_links"] += 1
@@ -237,11 +259,12 @@ def run_check():
         else:
             internal_external_count["equal"] += 1
 
-    total_internal = sum(a.get("internal_links", 0) for a in scraped.values() if a.get("is_video", 0) == 0)
-    total_external = sum(a.get("external_links", 0) for a in scraped.values() if a.get("is_video", 0) == 0)
+    total_internal = sum(a.get("internal_links", 0) for a in free_articles.values())
+    total_external = sum(a.get("external_links", 0) for a in free_articles.values())
 
+    # Category breakdown for free articles only
     category_breakdown = {}
-    for article in scraped.values():
+    for article in free_articles.values():
         cat = article.get("category", _get_category_from_url(article["url"]))
         if cat not in category_breakdown:
             category_breakdown[cat] = {
@@ -262,9 +285,13 @@ def run_check():
                 category_breakdown[cat]["with_links"] / category_breakdown[cat]["total"] * 100
             )
 
-    first_para_with_links = sum(1 for a in scraped.values() if a["first_paragraph_link_count"] > 0)
-    first_para_without_links = len(scraped) - first_para_with_links
-    first_para_pct = (first_para_with_links / len(scraped) * 100) if len(scraped) > 0 else 0
+    # First paragraph stats for free articles only
+    first_para_with_links = sum(1 for a in free_articles.values() if a["first_paragraph_link_count"] > 0)
+    first_para_without_links = len(free_articles) - first_para_with_links
+    first_para_pct = (first_para_with_links / len(free_articles) * 100) if len(free_articles) > 0 else 0
+
+    # Autor pages without links
+    autor_no_link_articles = [a for a in autor_articles.values() if a["link_count"] == 0]
 
     daily_data = {
         "stats": {
@@ -273,11 +300,6 @@ def run_check():
             "with_links": with_links,
             "without_links": without_links,
             "pct_without_links": pct_without_links
-        },
-        "breakdown": {
-            "videos": len(videos_without_links),
-            "plus_articles": len(plus_articles_without_links),
-            "normal_articles": len(normal_articles_without_links)
         },
         "articles_without_links": no_link_articles,
         "link_distribution": link_distribution,
@@ -290,12 +312,22 @@ def run_check():
         "first_paragraph": {
             "stats": {
                 "run_date": run_date,
-                "total": len(scraped),
+                "total": len(free_articles),
                 "with_links": first_para_with_links,
                 "without_links": first_para_without_links,
                 "pct_with_links": first_para_pct
             },
             "categories": category_breakdown
+        },
+        "autorenseiten": {
+            "stats": {
+                "run_date": run_date,
+                "total": autor_total,
+                "with_links": autor_with_links,
+                "without_links": autor_without_links,
+                "pct_without_links": autor_pct_without_links
+            },
+            "articles_without_links": autor_no_link_articles
         }
     }
 

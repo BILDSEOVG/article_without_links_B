@@ -23,6 +23,7 @@
             <button class="main-tab-btn active" data-tab="tab-free-articles">Free-Artikel</button>
             <button class="main-tab-btn" data-tab="tab-plus-articles">Plus-Artikel</button>
             <button class="main-tab-btn" data-tab="tab-videos">Videos</button>
+            <button class="main-tab-btn" data-tab="tab-autorenseiten">Autorenseiten</button>
         </div>
 
         <div id="tab-free-articles" class="main-tab-content active">
@@ -55,30 +56,12 @@
             </div>
         </div>
 
-        <div class="breakdown-section">
-            <h3>Aufteilung "Ohne Links"</h3>
-            <div class="breakdown-cards">
-                <div class="breakdown-card">
-                    <div class="breakdown-label">Videos</div>
-                    <div class="breakdown-value" id="breakdownVideos">—</div>
-                </div>
-                <div class="breakdown-card">
-                    <div class="breakdown-label">Plus-Artikel</div>
-                    <div class="breakdown-value" id="breakdownPlus">—</div>
-                </div>
-                <div class="breakdown-card">
-                    <div class="breakdown-label">Normale Artikel</div>
-                    <div class="breakdown-value" id="breakdownNormal">—</div>
-                </div>
-            </div>
-        </div>
-
         <div class="link-statistics-section">
             <h3>Link-Statistiken</h3>
 
             <div class="stats-row">
                 <div class="chart-box">
-                    <h4>Verteilung nach Link-Anzahl</h4>
+                    <h4>Wie viele Links hatten unsere Artikel?</h4>
                     <canvas id="linkDistributionChart"></canvas>
                 </div>
                 <div class="chart-box">
@@ -180,6 +163,48 @@
                 <h2>Videos</h2>
                 <p>🔄 Kommt demnächst</p>
             </div>
+        </div>
+
+        <div id="tab-autorenseiten" class="main-tab-content">
+        <div id="autorStats" class="stats-cards">
+            <div class="card">
+                <div class="label">Datum</div>
+                <div class="value" id="autorStatDate">—</div>
+            </div>
+            <div class="card">
+                <div class="label">Autorenseiten gesamt</div>
+                <div class="value" id="autorStatTotal">—</div>
+            </div>
+            <div class="card">
+                <div class="label">Mit Links</div>
+                <div class="value" id="autorStatWithLinks">—</div>
+            </div>
+            <div class="card">
+                <div class="label">Ohne Links</div>
+                <div class="value" id="autorStatWithoutLinks">—</div>
+            </div>
+            <div class="card">
+                <div class="label">% Ohne Links</div>
+                <div class="value" id="autorStatPercent">—</div>
+            </div>
+        </div>
+
+        <section class="articles-section">
+            <h2>Autorenseiten ohne Links</h2>
+            <table id="autorArticlesTable" class="articles-table">
+                <thead>
+                    <tr>
+                        <th>Titel</th>
+                        <th>Kategorie</th>
+                        <th>Veröffentlicht</th>
+                        <th>URL</th>
+                    </tr>
+                </thead>
+                <tbody id="autorArticlesBody">
+                </tbody>
+            </table>
+            <div id="autorNoDataMsg" class="no-data">Keine Daten verfügbar</div>
+        </section>
         </div>
     </div>
 
