@@ -87,7 +87,46 @@ header p {
     font-weight: 500;
 }
 
-.tabs {
+.main-tabs {
+    display: flex;
+    gap: 10px;
+    padding: 15px 40px 0;
+    border-bottom: 3px solid #e0e0e0;
+    background: white;
+}
+
+.main-tab-btn {
+    padding: 12px 24px;
+    background: transparent;
+    border: none;
+    border-bottom: 4px solid transparent;
+    font-size: 15px;
+    font-weight: 700;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.main-tab-btn.active {
+    color: #667eea;
+    border-bottom-color: #667eea;
+}
+
+.main-tab-btn:hover {
+    color: #667eea;
+}
+
+.main-tab-content {
+    display: none;
+}
+
+.main-tab-content.active {
+    display: block;
+}
+
+.sub-tabs {
     display: flex;
     gap: 10px;
     padding: 15px 40px 0;
@@ -122,6 +161,29 @@ header p {
 
 .tab-content.active {
     display: block;
+}
+
+.placeholder-section {
+    padding: 60px 40px;
+    text-align: center;
+    background: #f8f9fa;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-section h2 {
+    font-size: 32px;
+    color: #333;
+    margin: 0 0 20px 0;
+}
+
+.placeholder-section p {
+    font-size: 18px;
+    color: #999;
+    margin: 0;
 }
 
 .category-controls {

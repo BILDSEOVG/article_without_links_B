@@ -212,7 +212,22 @@ function escapeHtml(text) {
     return text.replace(/[&<>"']/g, m => map[m]);
 }
 
-// Tab switching
+// Main tab switching (Free-Artikel, Plus-Artikel, Videos)
+document.querySelectorAll(".main-tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const tabName = btn.getAttribute("data-tab");
+
+        // Update active button
+        document.querySelectorAll(".main-tab-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // Update active content
+        document.querySelectorAll(".main-tab-content").forEach(c => c.classList.remove("active"));
+        document.getElementById(tabName).classList.add("active");
+    });
+});
+
+// Sub tab switching (Alle Links, Links im 1. Absatz)
 document.querySelectorAll(".tab-btn").forEach(btn => {
     btn.addEventListener("click", () => {
         const tabName = btn.getAttribute("data-tab");

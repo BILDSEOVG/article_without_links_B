@@ -20,7 +20,14 @@
             <span id="progressSpan" class="progress-text" style="display:none;"></span>
         </div>
 
-        <div class="tabs">
+        <div class="main-tabs">
+            <button class="main-tab-btn active" data-tab="tab-free-articles">Free-Artikel</button>
+            <button class="main-tab-btn" data-tab="tab-plus-articles">Plus-Artikel</button>
+            <button class="main-tab-btn" data-tab="tab-videos">Videos</button>
+        </div>
+
+        <div id="tab-free-articles" class="main-tab-content active">
+        <div class="sub-tabs">
             <button class="tab-btn active" data-tab="tab-all-links">Alle Links</button>
             <button class="tab-btn" data-tab="tab-first-para">Links im 1. Absatz</button>
         </div>
@@ -159,6 +166,21 @@
             <h3>Nach Ressort</h3>
             <div id="categoryList" class="category-list"></div>
         </div>
+        </div>
+        </div>
+
+        <div id="tab-plus-articles" class="main-tab-content">
+            <div class="placeholder-section">
+                <h2>Plus-Artikel</h2>
+                <p>🔄 Kommt demnächst</p>
+            </div>
+        </div>
+
+        <div id="tab-videos" class="main-tab-content">
+            <div class="placeholder-section">
+                <h2>Videos</h2>
+                <p>🔄 Kommt demnächst</p>
+            </div>
         </div>
     </div>
 
