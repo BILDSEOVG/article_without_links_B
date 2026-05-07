@@ -395,7 +395,76 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
     });
 });
 
+function setDateAndLoad(date) {
+    document.getElementById("dateInput").value = date;
+
+    // Remove active class from all filter buttons
+    document.querySelectorAll(".date-filter-btn").forEach(btn => btn.classList.remove("active"));
+
+    if (date) {
+        loadStats(date);
+        loadFirstParaStats();
+        loadLinkStatistics();
+        loadAutorenseiten(date);
+    } else {
+        loadStats();
+        loadFirstParaStats();
+        loadLinkStatistics();
+        loadAutorenseiten();
+    }
+}
+
+function getDateForFilter(filterType) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    switch(filterType) {
+        case "yesterday": {
+            const yesterday = new Date(today);
+            yesterday.setDate(yesterday.getDate() - 1);
+            return yesterday.toISOString().split('T')[0];
+        }
+        case "week": {
+            const weekAgo = new Date(today);
+            weekAgo.setDate(weekAgo.getDate() - 7);
+            return weekAgo.toISOString().split('T')[0];
+        }
+        case "month": {
+            const monthAgo = new Date(today);
+            monthAgo.setDate(monthAgo.getDate() - 30);
+            return monthAgo.toISOString().split('T')[0];
+        }
+        case "all":
+            return null;
+    }
+}
+
+document.getElementById("yesterdayBtn").addEventListener("click", () => {
+    const date = getDateForFilter("yesterday");
+    setDateAndLoad(date);
+    document.getElementById("yesterdayBtn").classList.add("active");
+});
+
+document.getElementById("weekBtn").addEventListener("click", () => {
+    const date = getDateForFilter("week");
+    setDateAndLoad(date);
+    document.getElementById("weekBtn").classList.add("active");
+});
+
+document.getElementById("monthBtn").addEventListener("click", () => {
+    const date = getDateForFilter("month");
+    setDateAndLoad(date);
+    document.getElementById("monthBtn").classList.add("active");
+});
+
+document.getElementById("allBtn").addEventListener("click", () => {
+    setDateAndLoad(null);
+    document.getElementById("allBtn").classList.add("active");
+});
+
 document.getElementById("dateInput").addEventListener("change", (e) => {
+    document.querySelectorAll(".date-filter-btn").forEach(btn => btn.classList.remove("active"));
+
     if (e.target.value) {
         loadStats(e.target.value);
         loadFirstParaStats();

@@ -55,6 +55,37 @@ header p {
     flex: 1;
 }
 
+.date-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.date-filter-btn {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #666;
+    font-weight: 500;
+}
+
+.date-filter-btn:hover {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.date-filter-btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
 .btn {
     padding: 10px 24px;
     border: none;
@@ -509,8 +540,17 @@ header p {
         align-items: stretch;
     }
 
-    .btn,
+    .date-controls {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .date-filter-btn,
     .date-input {
+        width: 100%;
+    }
+
+    .btn {
         width: 100%;
     }
 
