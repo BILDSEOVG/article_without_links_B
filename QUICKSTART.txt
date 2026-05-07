@@ -1,0 +1,65 @@
+╔═══════════════════════════════════════════════════════════════════╗
+║          BILD SITEMAP LINK CHECKER - QUICK START                 ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+WHAT IT DOES:
+  • Checks BILD news sitemap every morning at 6 AM (Berlin time)
+  • Counts articles that have NO internal links
+  • Shows results in a beautiful dashboard
+
+QUICK START (5 seconds):
+  1. Open Terminal
+  2. cd /Users/vivienne.goizet/Applications/sitemap-link-checker
+  3. python3 app.py
+  4. Open http://localhost:5002 in browser
+  5. Click "Jetzt prüfen" to run a check
+
+DASHBOARD FEATURES:
+  • Live statistics (total articles, with/without links)
+  • 14-day trend chart
+  • Table of articles with no links
+  • Date picker to view historical data
+  • Manual trigger button
+
+FILE LOCATIONS:
+  App: /Users/vivienne.goizet/Applications/sitemap-link-checker/
+  Database: data/link_checker.db (created automatically)
+  Logs (if run via launchd): /var/log/bild-linkchecker-*.log
+
+SETUP FOR AUTOMATIC 6 AM CHECKS:
+  cp com.bild.linkchecker.plist ~/Library/LaunchAgents/
+  launchctl load ~/Library/LaunchAgents/com.bild.linkchecker.plist
+  
+  Then the app will:
+  • Start automatically on login
+  • Run a check at 6 AM daily
+  • Keep running in the background
+  • Be accessible at http://localhost:5002
+
+STOP THE SERVICE:
+  launchctl unload ~/Library/LaunchAgents/com.bild.linkchecker.plist
+
+CHECK APP STATUS:
+  launchctl list | grep linkchecker
+  
+  View logs:
+  tail -f /var/log/bild-linkchecker-stdout.log
+
+TROUBLESHOOTING:
+  • Port 5002 already in use?
+    lsof -i :5002
+  
+  • Scheduler not running?
+    - Check system time/timezone
+    - Verify app is running: ps aux | grep app.py
+  
+  • Database error?
+    rm data/link_checker.db  (will be recreated)
+
+DOCUMENTATION:
+  README.md        - Full feature documentation
+  DEPLOYMENT.md    - Detailed deployment guide
+  checker.py       - Core scraping logic
+  app.py          - Flask server & scheduler
+  
+═══════════════════════════════════════════════════════════════════

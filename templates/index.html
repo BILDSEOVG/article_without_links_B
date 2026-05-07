@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap Link Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📰 BILD Sitemap Link Checker</h1>
+            <p>Täglich um 6 Uhr: Artikel von gestern ohne interne Links</p>
+        </header>
+
+        <div class="controls">
+            <button id="runBtn" class="btn btn-primary">Jetzt prüfen</button>
+            <input type="date" id="dateInput" class="date-input">
+            <span id="progressSpan" class="progress-text" style="display:none;"></span>
+        </div>
+
+        <div id="stats" class="stats-cards">
+            <div class="card">
+                <div class="label">Datum</div>
+                <div class="value" id="statDate">—</div>
+            </div>
+            <div class="card">
+                <div class="label">Artikel gesamt</div>
+                <div class="value" id="statTotal">—</div>
+            </div>
+            <div class="card">
+                <div class="label">Mit Links</div>
+                <div class="value" id="statWithLinks">—</div>
+            </div>
+            <div class="card">
+                <div class="label">Ohne Links</div>
+                <div class="value" id="statWithoutLinks">—</div>
+            </div>
+            <div class="card">
+                <div class="label">% Ohne Links</div>
+                <div class="value" id="statPercent">—</div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="trendChart"></canvas>
+        </div>
+
+        <section class="articles-section">
+            <h2>Artikel ohne Links</h2>
+            <table id="articlesTable" class="articles-table">
+                <thead>
+                    <tr>
+                        <th>Titel</th>
+                        <th>Kategorie</th>
+                        <th>Veröffentlicht</th>
+                        <th>URL</th>
+                    </tr>
+                </thead>
+                <tbody id="articlesBody">
+                </tbody>
+            </table>
+            <div id="noDataMsg" class="no-data">Keine Daten verfügbar</div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.bild.linkchecker</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/vivienne.goizet/Applications/sitemap-link-checker/app.py</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/vivienne.goizet/Applications/sitemap-link-checker</string>
+    <key>StandardOutPath</key>
+    <string>/var/log/bild-linkchecker-stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>/var/log/bild-linkchecker-stderr.log</string>
+    <key>KeepAlive</key>
+    <true/>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StartInterval</key>
+    <integer>3600</integer>
+</dict>
+</plist>
