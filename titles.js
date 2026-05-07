@@ -261,6 +261,18 @@ document.getElementById("h1h2FilterSelect").addEventListener("change", (e) => {
     loadH1H2Stats(threshold);
 });
 
+document.querySelectorAll(".titles-tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const tabName = btn.getAttribute("data-tab");
+
+        document.querySelectorAll(".titles-tab-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        document.querySelectorAll(".titles-tab-content").forEach(c => c.classList.remove("active"));
+        document.getElementById(tabName).classList.add("active");
+    });
+});
+
 window.addEventListener("load", () => {
     loadHistory();
     loadH1H2Stats();

@@ -159,7 +159,7 @@ header p {
 .main-tab-link {
     margin-left: auto;
     padding: 10px 20px;
-    background: #0891b2;
+    background: #ff8c42;
     color: white;
     border-radius: 6px;
     font-size: 14px;
@@ -174,7 +174,7 @@ header p {
 }
 
 .main-tab-link:hover {
-    background: #0e7490;
+    background: #ff7a1f;
 }
 
 .main-tab-content {
