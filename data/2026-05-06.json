@@ -22,7 +22,8 @@
       "h2_full_text": "„Riesen-Fehlentscheidung!:Ballack-Wut mitten im Live-Kommentar",
       "h1_h2_similarity": 85.3,
       "error": null,
-      "published_date": "2026-05-06T23:33:13+02:00"
+      "published_date": "2026-05-06T23:33:13+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/gewinner-verlierer-5c374fa54ae86300019b6bd4",
@@ -39,7 +40,8 @@
       "h2_full_text": "BILD:Gewinner & Verlierer",
       "h1_h2_similarity": 80.6,
       "error": null,
-      "published_date": "2026-05-06T22:15:13+02:00"
+      "published_date": "2026-05-06T22:15:13+02:00",
+      "category": "News"
     },
     {
       "url": "https://www.bild.de/sport/fussball/fc-bayern-wut-auf-den-schiri-alle-komplett-ausser-sich-69fb98e4c6d2944c8df6abb8",
@@ -56,7 +58,8 @@
       "h2_full_text": "Wut auf den Schiri:Alle Bayern komplett außer sich!",
       "h1_h2_similarity": 79.2,
       "error": null,
-      "published_date": "2026-05-06T22:06:00+02:00"
+      "published_date": "2026-05-06T22:06:00+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/sport/fussball/fc-bayern-max-eberl-laesst-laura-wontorra-abblitzen-69fb8cf0cd4a28c47001ea4e",
@@ -73,7 +76,8 @@
       "h2_full_text": "„Ohne dass ich unhöflich sein will ...“:Eberl lässt Wontorra abblitzen",
       "h1_h2_similarity": 59.5,
       "error": null,
-      "published_date": "2026-05-06T21:10:58+02:00"
+      "published_date": "2026-05-06T21:10:58+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/sport/fussball/champions-league-laura-wontorra-spricht-von-mauerfall-und-mondlandung-69fb82e2cd4a28c47001e9a6",
@@ -90,7 +94,8 @@
       "h2_full_text": "Ballack überrascht!:Wontorra spricht von Mauerfall und Mondlandung",
       "h1_h2_similarity": 72.1,
       "error": null,
-      "published_date": "2026-05-06T20:18:05+02:00"
+      "published_date": "2026-05-06T20:18:05+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/unterhaltung/tv-fernsehformate/ted-turner-gestorben-jane-fonda-liebte-den-gruender-von-cnn-mehr-als-ihre-filmkarriere-69fb553c78a5e02b5e7a6678",
@@ -107,7 +112,8 @@
       "h2_full_text": "CNN-Gründer Ted Turner gestorben:Jane Fonda liebte ihn mehr als ihre Filmkarriere",
       "h1_h2_similarity": 80.2,
       "error": null,
-      "published_date": "2026-05-06T19:48:04+02:00"
+      "published_date": "2026-05-06T19:48:04+02:00",
+      "category": "Unterhaltung"
     },
     {
       "url": "https://www.bild.de/sport/fussball/packt-cottbus-das-wunder-ex-bundesliga-star-rost-tippt-aufstiegskampf-69faca3ccd4a28c47001d520",
@@ -124,7 +130,8 @@
       "h2_full_text": "Packt Cottbus das Lausitz-Wunder?:Ex-Bundesliga-Star tippt Aufstiegskampf",
       "h1_h2_similarity": 89.5,
       "error": null,
-      "published_date": "2026-05-06T19:44:11+02:00"
+      "published_date": "2026-05-06T19:44:11+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/sport/fussball/fette-ueberraschung-bueskens-darf-nicht-in-den-schalke-aufsichtsrat-69fb721c68e679ae0ccd516a",
@@ -141,7 +148,8 @@
       "h2_full_text": "Große Überraschung:Büskens darf nicht in den Schalke-Aufsichtsrat!",
       "h1_h2_similarity": 93.2,
       "error": null,
-      "published_date": "2026-05-06T18:57:14+02:00"
+      "published_date": "2026-05-06T18:57:14+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/sport/fussball/wm-2026-irrsinn-in-mexiko-drohung-gegen-eigene-stars-69fb6fa6cd4a28c47001e859",
@@ -158,7 +166,8 @@
       "h2_full_text": "Irrsinn in Mexiko:WM-Drohung gegen eigene Stars!",
       "h1_h2_similarity": 84.3,
       "error": null,
-      "published_date": "2026-05-06T18:50:01+02:00"
+      "published_date": "2026-05-06T18:50:01+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/politik/inland/friedrich-merz-schlaegt-im-zdf-zurueck-wir-sind-besser-als-die-ampel-69fb59f868e679ae0ccd4ed5",
@@ -175,7 +184,8 @@
       "h2_full_text": "Kanzler schlägt im TV-Interview zurück:Wir sind besser als die Ampel!",
       "h1_h2_similarity": 75.9,
       "error": null,
-      "published_date": "2026-05-06T18:46:15+02:00"
+      "published_date": "2026-05-06T18:46:15+02:00",
+      "category": "Politik"
     },
     {
       "url": "https://www.bild.de/sport/fussball/fcn-klose-reagiert-auf-baacks-wechsel-ich-war-auch-ueberrascht-69fb4f7fcd4a28c47001e488",
@@ -192,7 +202,8 @@
       "h2_full_text": "„Habe es aus der Zeitung erfahren“:Klose wusste nichts von Baack-Abschied",
       "h1_h2_similarity": 34.3,
       "error": null,
-      "published_date": "2026-05-06T18:08:07+02:00"
+      "published_date": "2026-05-06T18:08:07+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/sport/regionalsport/chef-und-assistent-weg-trainer-knall-beim-mutterklub-von-rb-leipzig-69fb0834cbc6aa7d81ba15d2",
@@ -209,7 +220,8 @@
       "h2_full_text": "Chef und Assistent schmeißen hin:Trainer-Knall beim Mutterklub von RB Leipzig",
       "h1_h2_similarity": 89.7,
       "error": null,
-      "published_date": "2026-05-06T17:32:08+02:00"
+      "published_date": "2026-05-06T17:32:08+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/sport/fussball/mit-preussen-gegen-darmstadt-schwartz-kaempft-um-retter-ruf-69fb37b578a5e02b5e7a6127",
@@ -226,7 +238,8 @@
       "h2_full_text": "Mit Preußen gegen Darmstadt:Schwartz kämpft um Retter-Ruf",
       "h1_h2_similarity": 99.1,
       "error": null,
-      "published_date": "2026-05-06T17:22:53+02:00"
+      "published_date": "2026-05-06T17:22:53+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/politik/inland/kerosin-aus-israel-soll-engpaesse-vermeiden-vorrat-reicht-fuer-fuenf-monate-69faec37cbc6aa7d81ba11ad",
@@ -243,7 +256,8 @@
       "h2_full_text": "Doch ein Versorgungsproblem?:Plötzlich kaufen wir Kerosin aus Israel",
       "h1_h2_similarity": 68.2,
       "error": null,
-      "published_date": "2026-05-06T17:03:28+02:00"
+      "published_date": "2026-05-06T17:03:28+02:00",
+      "category": "Politik"
     },
     {
       "url": "https://www.bild.de/sport/fussball/vertrag-bis-2031-leverkusen-verlaengert-mit-arthur-69fb4ef068e679ae0ccd4d16",
@@ -260,7 +274,8 @@
       "h2_full_text": "Vertrag bis 2031:Leverkusen verlängert mit Arthur",
       "h1_h2_similarity": 99.0,
       "error": null,
-      "published_date": "2026-05-06T16:42:43+02:00"
+      "published_date": "2026-05-06T16:42:43+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/sport/fussball/titelkampf-spitzt-sich-zu-jena-kann-lok-leipzig-von-platz-1-verdraengen-69fb404078a5e02b5e7a62bc",
@@ -277,7 +292,8 @@
       "h2_full_text": "Uluc mit Kampfansage:So will Jena Meister werden",
       "h1_h2_similarity": 38.7,
       "error": null,
-      "published_date": "2026-05-06T16:11:31+02:00"
+      "published_date": "2026-05-06T16:11:31+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/politik/digitalminister-wildberger-zieht-nach-einem-jahr-bilanz-wir-deutschen-sind-zu-schnell-anti-69fb02c278a5e02b5e7a59e8",
@@ -294,7 +310,8 @@
       "h2_full_text": "Digitalminister Wildberger zieht nach einem Jahr Bilanz:Wir Deutschen sind zu schnell anti",
       "h1_h2_similarity": 99.4,
       "error": null,
-      "published_date": "2026-05-06T14:14:59+02:00"
+      "published_date": "2026-05-06T14:14:59+02:00",
+      "category": "Politik"
     },
     {
       "url": "https://www.bild.de/sport/fussball/so-schwer-wars-noch-nie-der-brutale-kampf-um-die-champions-league-69fad721c764528c1ad2198c",
@@ -311,7 +328,8 @@
       "h2_full_text": "So schwer war’s noch nie:Der brutale Kampf um die Champions League",
       "h1_h2_similarity": 99.2,
       "error": null,
-      "published_date": "2026-05-06T14:01:57+02:00"
+      "published_date": "2026-05-06T14:01:57+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/sport/fussball/hannover-96-voellig-ueberraschend-saison-aus-fuer-diesen-stuermerstar-69fb150578a5e02b5e7a5cb8",
@@ -328,7 +346,8 @@
       "h2_full_text": "Völlig überraschend!:Saison-Aus für diesen 96-Star",
       "h1_h2_similarity": 78.6,
       "error": null,
-      "published_date": "2026-05-06T13:23:55+02:00"
+      "published_date": "2026-05-06T13:23:55+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/sport/fussball/fcn-schon-wieder-preiserhoehung-beim-fcn-69faea19c6d2944c8df69607",
@@ -345,7 +364,8 @@
       "h2_full_text": "Auslöser sind neue Preise:Fan-Ärger beim 1. FC Nürnberg",
       "h1_h2_similarity": 50.5,
       "error": null,
-      "published_date": "2026-05-06T13:22:06+02:00"
+      "published_date": "2026-05-06T13:22:06+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/sport/mehr-sport/eishockey-noebels-wechselt-nach-koeln-eisbaeren-feiern-auf-mallorca-69f9db1acd4a28c47001c34c",
@@ -362,7 +382,8 @@
       "h2_full_text": "Die Eisbären auf Mallorca-Kurztrip:Was Noebels über seinen Abschied denkt",
       "h1_h2_similarity": 32.9,
       "error": null,
-      "published_date": "2026-05-06T12:26:48+02:00"
+      "published_date": "2026-05-06T12:26:48+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/leben-wissen/digital/airline-check-in-verbraucherschuetzer-warnen-vor-betrug-69fb09b178a5e02b5e7a5b0c",
@@ -379,7 +400,8 @@
       "h2_full_text": "Betrug mit Flugreisen:Achtung, Abzocke beim Online-Check-in",
       "h1_h2_similarity": 26.3,
       "error": null,
-      "published_date": "2026-05-06T12:19:19+02:00"
+      "published_date": "2026-05-06T12:19:19+02:00",
+      "category": "News"
     },
     {
       "url": "https://www.bild.de/leben-wissen/auto/eine-pruefung-fuer-fans-vertragen-sich-gti-und-elektro-69f9daace58bc39ac6b11e86",
@@ -396,7 +418,8 @@
       "h2_full_text": "VW Polo im Check:Geht GTI auch Elektro?",
       "h1_h2_similarity": 98.7,
       "error": null,
-      "published_date": "2026-05-06T12:16:34+02:00"
+      "published_date": "2026-05-06T12:16:34+02:00",
+      "category": "News"
     },
     {
       "url": "https://www.bild.de/sport/fussball/football-statt-fussball-ex-nationalspieler-uebt-fuer-den-olympia-kick-69fa1d51e58bc39ac6b126c9",
@@ -413,7 +436,8 @@
       "h2_full_text": "Football statt Fußball:Halstenberg übt für den Olympia-Kick",
       "h1_h2_similarity": 84.1,
       "error": null,
-      "published_date": "2026-05-06T12:06:41+02:00"
+      "published_date": "2026-05-06T12:06:41+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/sport/fussball/greuther-fuerth-bei-abstieg-futkeu-droht-trauriger-rekord-69f892fa23e6b3dbf3c989eb",
@@ -430,7 +454,8 @@
       "h2_full_text": "Bei Fürth-Abstieg:Futkeu droht trauriger Titel",
       "h1_h2_similarity": 75.0,
       "error": null,
-      "published_date": "2026-05-06T11:34:43+02:00"
+      "published_date": "2026-05-06T11:34:43+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/leben-wissen/digital/amazon-fire-tv-entdecken-sie-versteckte-funktionen-69f9f45028c8b45865918cd6",
@@ -447,7 +472,8 @@
       "h2_full_text": "Mehr drin, als Sie denken:So holen Sie alles aus Ihrem Fire TV raus",
       "h1_h2_similarity": 20.3,
       "error": null,
-      "published_date": "2026-05-06T11:32:11+02:00"
+      "published_date": "2026-05-06T11:32:11+02:00",
+      "category": "News"
     },
     {
       "url": "https://www.bild.de/sport/fussball/1-fc-koeln-auch-said-el-mala-dabei-diesen-koeln-stars-droht-das-fc-aus-ohne-abschied-69faf540cbc6aa7d81ba12d4",
@@ -464,7 +490,8 @@
       "h2_full_text": "Auch El Mala dabei:Diesen Köln-Stars droht FC-Aus ohne Abschied",
       "h1_h2_similarity": 85.1,
       "error": null,
-      "published_date": "2026-05-06T11:29:39+02:00"
+      "published_date": "2026-05-06T11:29:39+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/news/behoerden-bestaetigen-hantavirus-fall-hondius-passagier-wird-in-zuerich-behandelt-69fb07e9cd4a28c47001db43",
@@ -481,7 +508,8 @@
       "h2_full_text": "Schweizer Behörden bestätigen Hantavirus-Fall:„Hondius“-Passagier wird in Zürich behandelt",
       "h1_h2_similarity": 93.6,
       "error": null,
-      "published_date": "2026-05-06T11:26:39+02:00"
+      "published_date": "2026-05-06T11:26:39+02:00",
+      "category": "News"
     },
     {
       "url": "https://www.bild.de/sport/fussball/streaming-webseite-blockiert-bundesliga-und-dazn-mit-schlag-gegen-piraten-69f89c4bd3209c4cbd891c85",
@@ -498,7 +526,8 @@
       "h2_full_text": "Webseite gerichtlich gesperrt:Bundesliga und DAZN mit Schlag gegen illegale Streams",
       "h1_h2_similarity": 62.7,
       "error": null,
-      "published_date": "2026-05-06T08:02:07+02:00"
+      "published_date": "2026-05-06T08:02:07+02:00",
+      "category": "Sport"
     },
     {
       "url": "https://www.bild.de/politik/inland/merz-beim-cdu-wirtschaftsrat-unter-druck-darf-ich-noch-liebe-freunde-sagen-69fa4755cd4a28c47001cdd0",
@@ -515,7 +544,8 @@
       "h2_full_text": "Merz beim CDU-Wirtschaftsrat unter Druck:Darf ich noch „liebe Freunde“ sagen?",
       "h1_h2_similarity": 99.4,
       "error": null,
-      "published_date": "2026-05-06T06:40:00+02:00"
+      "published_date": "2026-05-06T06:40:00+02:00",
+      "category": "Politik"
     },
     {
       "url": "https://www.bild.de/leben-wissen/digital/digitaler-blackout-stoerung-legt-zahlreiche-de-webseiten-lahm-69fa7498c764528c1ad213c0",
@@ -532,7 +562,8 @@
       "h2_full_text": "Digitaler Blackout:Störung legt etliche .de-Webseiten lahm",
       "h1_h2_similarity": 93.3,
       "error": null,
-      "published_date": "2026-05-06T01:04:30+02:00"
+      "published_date": "2026-05-06T01:04:30+02:00",
+      "category": "News"
     }
   ],
   "link_distribution": {
@@ -562,53 +593,35 @@
       "pct_with_links": 0.5181347150259068
     },
     "categories": {
-      "unterhaltung": {
+      "Unterhaltung": {
         "total": 38,
         "with_links": 0,
         "without_links": 38,
         "pct_with_links": 0.0
       },
-      "sport": {
+      "Sport": {
         "total": 76,
         "with_links": 0,
         "without_links": 76,
         "pct_with_links": 0.0
       },
-      "gewinner-verlierer-5c374fa54ae86300019b6bd4": {
-        "total": 1,
+      "News": {
+        "total": 45,
         "with_links": 0,
-        "without_links": 1,
+        "without_links": 45,
         "pct_with_links": 0.0
       },
-      "regional": {
+      "Regional": {
         "total": 12,
         "with_links": 0,
         "without_links": 12,
         "pct_with_links": 0.0
       },
-      "politik": {
+      "Politik": {
         "total": 22,
         "with_links": 1,
         "without_links": 21,
         "pct_with_links": 4.545454545454546
-      },
-      "news": {
-        "total": 16,
-        "with_links": 0,
-        "without_links": 16,
-        "pct_with_links": 0.0
-      },
-      "leben-wissen": {
-        "total": 26,
-        "with_links": 0,
-        "without_links": 26,
-        "pct_with_links": 0.0
-      },
-      "service": {
-        "total": 2,
-        "with_links": 0,
-        "without_links": 2,
-        "pct_with_links": 0.0
       }
     }
   },
@@ -636,7 +649,8 @@
         "h2_full_text": "Stefan Netzebandt:Leitung Podcast und Talk",
         "h1_h2_similarity": 57.6,
         "error": null,
-        "published_date": "2026-05-06T17:35:45+02:00"
+        "published_date": "2026-05-06T17:35:45+02:00",
+        "category": "News"
       },
       {
         "url": "https://www.bild.de/autor/lars-wallrodt",
@@ -653,7 +667,8 @@
         "h2_full_text": "Lars Wallrodt:Sportchef BILD am SONNTAG",
         "h1_h2_similarity": 50.0,
         "error": null,
-        "published_date": "2026-05-06T16:21:02+02:00"
+        "published_date": "2026-05-06T16:21:02+02:00",
+        "category": "News"
       }
     ]
   },
@@ -663,7 +678,9 @@
       "above_90": 39,
       "above_80": 30,
       "below_80": 124,
-      "average_similarity": 66.0
+      "average_similarity": 66.0,
+      "pct_above_90": 20.2,
+      "pct_above_80_plus": 35.8
     },
     "articles": [
       {
@@ -698,7 +715,8 @@
         "h2_full_text": "Digitalminister Wildberger zieht nach einem Jahr Bilanz:Wir Deutschen sind zu schnell anti",
         "h1_h2_similarity": 99.4,
         "error": null,
-        "published_date": "2026-05-06T14:14:59+02:00"
+        "published_date": "2026-05-06T14:14:59+02:00",
+        "category": "Politik"
       },
       {
         "url": "https://www.bild.de/politik/inland/erste-kostenrechnungen-wegner-will-olympisches-feuer-vor-dem-brandenburger-tor-69f96a996fe2dee7bfb12f80",
@@ -749,7 +767,8 @@
         "h2_full_text": "Merz beim CDU-Wirtschaftsrat unter Druck:Darf ich noch „liebe Freunde“ sagen?",
         "h1_h2_similarity": 99.4,
         "error": null,
-        "published_date": "2026-05-06T06:40:00+02:00"
+        "published_date": "2026-05-06T06:40:00+02:00",
+        "category": "Politik"
       },
       {
         "url": "https://www.bild.de/unterhaltung/stars-und-leute/kampf-der-realityallstars-wegen-serkan-und-co-sieht-kader-loth-rot-69fb864952eeef0b34d53b14",
@@ -987,7 +1006,8 @@
         "h2_full_text": "So schwer war’s noch nie:Der brutale Kampf um die Champions League",
         "h1_h2_similarity": 99.2,
         "error": null,
-        "published_date": "2026-05-06T14:01:57+02:00"
+        "published_date": "2026-05-06T14:01:57+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/sport/fussball/sie-kaempfen-noch-um-die-wm-bvb-duo-fit-fuers-frankfurt-spiel-69fb1e19cbc6aa7d81ba1907",
@@ -1106,7 +1126,8 @@
         "h2_full_text": "Mit Preußen gegen Darmstadt:Schwartz kämpft um Retter-Ruf",
         "h1_h2_similarity": 99.1,
         "error": null,
-        "published_date": "2026-05-06T17:22:53+02:00"
+        "published_date": "2026-05-06T17:22:53+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/politik/neue-schockzahlen-gewinn-bei-bmw-bricht-um-23-prozent-ein-69fad25ec764528c1ad21922",
@@ -1157,7 +1178,8 @@
         "h2_full_text": "Vertrag bis 2031:Leverkusen verlängert mit Arthur",
         "h1_h2_similarity": 99.0,
         "error": null,
-        "published_date": "2026-05-06T16:42:43+02:00"
+        "published_date": "2026-05-06T16:42:43+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/news/unfalldrama-in-hessen-sohn-10-faehrt-mutter-tot-69fafe7378a5e02b5e7a594b",
@@ -1225,7 +1247,8 @@
         "h2_full_text": "VW Polo im Check:Geht GTI auch Elektro?",
         "h1_h2_similarity": 98.7,
         "error": null,
-        "published_date": "2026-05-06T12:16:34+02:00"
+        "published_date": "2026-05-06T12:16:34+02:00",
+        "category": "News"
       },
       {
         "url": "https://www.bild.de/regional/niedersachsen/tragoedie-in-ostfriesland-junge-3-unter-sandhaufen-verschuettet-tot-69fb23eec6d2944c8df69dc2",
@@ -1293,7 +1316,8 @@
         "h2_full_text": "Schweizer Behörden bestätigen Hantavirus-Fall:„Hondius“-Passagier wird in Zürich behandelt",
         "h1_h2_similarity": 93.6,
         "error": null,
-        "published_date": "2026-05-06T11:26:39+02:00"
+        "published_date": "2026-05-06T11:26:39+02:00",
+        "category": "News"
       },
       {
         "url": "https://www.bild.de/leben-wissen/digital/digitaler-blackout-stoerung-legt-zahlreiche-de-webseiten-lahm-69fa7498c764528c1ad213c0",
@@ -1310,7 +1334,8 @@
         "h2_full_text": "Digitaler Blackout:Störung legt etliche .de-Webseiten lahm",
         "h1_h2_similarity": 93.3,
         "error": null,
-        "published_date": "2026-05-06T01:04:30+02:00"
+        "published_date": "2026-05-06T01:04:30+02:00",
+        "category": "News"
       },
       {
         "url": "https://www.bild.de/sport/fussball/fette-ueberraschung-bueskens-darf-nicht-in-den-schalke-aufsichtsrat-69fb721c68e679ae0ccd516a",
@@ -1327,7 +1352,8 @@
         "h2_full_text": "Große Überraschung:Büskens darf nicht in den Schalke-Aufsichtsrat!",
         "h1_h2_similarity": 93.2,
         "error": null,
-        "published_date": "2026-05-06T18:57:14+02:00"
+        "published_date": "2026-05-06T18:57:14+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/sport/regionalsport/chef-und-assistent-weg-trainer-knall-beim-mutterklub-von-rb-leipzig-69fb0834cbc6aa7d81ba15d2",
@@ -1344,7 +1370,8 @@
         "h2_full_text": "Chef und Assistent schmeißen hin:Trainer-Knall beim Mutterklub von RB Leipzig",
         "h1_h2_similarity": 89.7,
         "error": null,
-        "published_date": "2026-05-06T17:32:08+02:00"
+        "published_date": "2026-05-06T17:32:08+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/sport/fussball/packt-cottbus-das-wunder-ex-bundesliga-star-rost-tippt-aufstiegskampf-69faca3ccd4a28c47001d520",
@@ -1361,7 +1388,8 @@
         "h2_full_text": "Packt Cottbus das Lausitz-Wunder?:Ex-Bundesliga-Star tippt Aufstiegskampf",
         "h1_h2_similarity": 89.5,
         "error": null,
-        "published_date": "2026-05-06T19:44:11+02:00"
+        "published_date": "2026-05-06T19:44:11+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/unterhaltung/stars-und-leute/sebastian-fitzek-spricht-ueber-das-vatersein-hoffnungslos-ueberfordert-und-aengstlich-69f71f6723e6b3dbf3c9769a",
@@ -1480,7 +1508,8 @@
         "h2_full_text": "„Riesen-Fehlentscheidung!:Ballack-Wut mitten im Live-Kommentar",
         "h1_h2_similarity": 85.3,
         "error": null,
-        "published_date": "2026-05-06T23:33:13+02:00"
+        "published_date": "2026-05-06T23:33:13+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/leben-wissen/reisen/bus-boarding-warum-passagiere-mit-dem-bus-zum-flieger-fahren-muessen-69f9d5fcc764528c1ad2061c",
@@ -1531,7 +1560,8 @@
         "h2_full_text": "Auch El Mala dabei:Diesen Köln-Stars droht FC-Aus ohne Abschied",
         "h1_h2_similarity": 85.1,
         "error": null,
-        "published_date": "2026-05-06T11:29:39+02:00"
+        "published_date": "2026-05-06T11:29:39+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/sport/mehr-sport/biathlon-ricco-gross-feiert-comeback-deutsche-legende-zurueck-im-weltcup-69fb5d0ecd4a28c47001e68c",
@@ -1565,7 +1595,8 @@
         "h2_full_text": "Irrsinn in Mexiko:WM-Drohung gegen eigene Stars!",
         "h1_h2_similarity": 84.3,
         "error": null,
-        "published_date": "2026-05-06T18:50:01+02:00"
+        "published_date": "2026-05-06T18:50:01+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/sport/fussball/football-statt-fussball-ex-nationalspieler-uebt-fuer-den-olympia-kick-69fa1d51e58bc39ac6b126c9",
@@ -1582,7 +1613,8 @@
         "h2_full_text": "Football statt Fußball:Halstenberg übt für den Olympia-Kick",
         "h1_h2_similarity": 84.1,
         "error": null,
-        "published_date": "2026-05-06T12:06:41+02:00"
+        "published_date": "2026-05-06T12:06:41+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/news/inland/stoerung-darum-ging-gestern-abend-das-internet-nicht-mehr-69fac9c9cd4a28c47001d51a",
@@ -1786,7 +1818,8 @@
         "h2_full_text": "BILD:Gewinner & Verlierer",
         "h1_h2_similarity": 80.6,
         "error": null,
-        "published_date": "2026-05-06T22:15:13+02:00"
+        "published_date": "2026-05-06T22:15:13+02:00",
+        "category": "News"
       },
       {
         "url": "https://www.bild.de/sport/fussball/champions-league-trapp-bayern-ist-wie-ein-unberechenbares-monster-69faef31cbc6aa7d81ba11f7",
@@ -1837,7 +1870,8 @@
         "h2_full_text": "CNN-Gründer Ted Turner gestorben:Jane Fonda liebte ihn mehr als ihre Filmkarriere",
         "h1_h2_similarity": 80.2,
         "error": null,
-        "published_date": "2026-05-06T19:48:04+02:00"
+        "published_date": "2026-05-06T19:48:04+02:00",
+        "category": "Unterhaltung"
       },
       {
         "url": "https://www.bild.de/sport/fussball/rb-leipzig-nach-amokfahrt-mit-2-toten-rb-anhaenger-sagen-fanmarsch-ab-69fb1b0d78a5e02b5e7a5d74",
@@ -1871,7 +1905,8 @@
         "h2_full_text": "Wut auf den Schiri:Alle Bayern komplett außer sich!",
         "h1_h2_similarity": 79.2,
         "error": null,
-        "published_date": "2026-05-06T22:06:00+02:00"
+        "published_date": "2026-05-06T22:06:00+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/sport/fussball/hannover-96-voellig-ueberraschend-saison-aus-fuer-diesen-stuermerstar-69fb150578a5e02b5e7a5cb8",
@@ -1888,7 +1923,8 @@
         "h2_full_text": "Völlig überraschend!:Saison-Aus für diesen 96-Star",
         "h1_h2_similarity": 78.6,
         "error": null,
-        "published_date": "2026-05-06T13:23:55+02:00"
+        "published_date": "2026-05-06T13:23:55+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/sport/fussball/hertha-bsc-drei-hertha-bubis-mit-starker-deutschland-premiere-69fadd2bc764528c1ad21a42",
@@ -1990,7 +2026,8 @@
         "h2_full_text": "Kanzler schlägt im TV-Interview zurück:Wir sind besser als die Ampel!",
         "h1_h2_similarity": 75.9,
         "error": null,
-        "published_date": "2026-05-06T18:46:15+02:00"
+        "published_date": "2026-05-06T18:46:15+02:00",
+        "category": "Politik"
       },
       {
         "url": "https://www.bild.de/unterhaltung/tv-fernsehformate/bares-fuer-rares-heute-unsichtbares-kunstwerk-bringt-ernuechterung-69fb0812c6d2944c8df699bb",
@@ -2058,7 +2095,8 @@
         "h2_full_text": "Bei Fürth-Abstieg:Futkeu droht trauriger Titel",
         "h1_h2_similarity": 75.0,
         "error": null,
-        "published_date": "2026-05-06T11:34:43+02:00"
+        "published_date": "2026-05-06T11:34:43+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/sport/fussball/hsv-trainer-party-extra-frei-so-feierte-der-klub-den-klassenerhalt-69fb3583c6d2944c8df69f90",
@@ -2160,7 +2198,8 @@
         "h2_full_text": "Ballack überrascht!:Wontorra spricht von Mauerfall und Mondlandung",
         "h1_h2_similarity": 72.1,
         "error": null,
-        "published_date": "2026-05-06T20:18:05+02:00"
+        "published_date": "2026-05-06T20:18:05+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/sport/fussball/fc-bayern-star-spieler-kommt-komplett-maskiert-69fb7ff2cd4a28c47001e961",
@@ -2330,7 +2369,8 @@
         "h2_full_text": "Doch ein Versorgungsproblem?:Plötzlich kaufen wir Kerosin aus Israel",
         "h1_h2_similarity": 68.2,
         "error": null,
-        "published_date": "2026-05-06T17:03:28+02:00"
+        "published_date": "2026-05-06T17:03:28+02:00",
+        "category": "Politik"
       },
       {
         "url": "https://www.bild.de/sport/mehr-sport/knall-in-der-bundesliga-handball-klub-wirft-boss-mit-sofortiger-wirkung-raus-69fb2336cd4a28c47001de87",
@@ -2517,7 +2557,8 @@
         "h2_full_text": "Webseite gerichtlich gesperrt:Bundesliga und DAZN mit Schlag gegen illegale Streams",
         "h1_h2_similarity": 62.7,
         "error": null,
-        "published_date": "2026-05-06T08:02:07+02:00"
+        "published_date": "2026-05-06T08:02:07+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/unterhaltung/bildgg/youtube-logan-paul-blecht-470-000-euro-fuer-one-piece-und-dragon-ball-69eb52d5e5056f185e233b54",
@@ -2636,7 +2677,8 @@
         "h2_full_text": "„Ohne dass ich unhöflich sein will ...“:Eberl lässt Wontorra abblitzen",
         "h1_h2_similarity": 59.5,
         "error": null,
-        "published_date": "2026-05-06T21:10:58+02:00"
+        "published_date": "2026-05-06T21:10:58+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/sport/fussball/bayern-muenchen-max-eberl-nennt-paris-spiel-pervers-geil-kimmich-warnt-neuer-mahnt-69f88c8c23e6b3dbf3c9891f",
@@ -2806,7 +2848,7 @@
         "h2_full_text": "Amtsgericht-Urteil:Handtuch-Krieg am Pool! Urlauber erhält Geld zurück",
         "h1_h2_similarity": 55.0,
         "error": null,
-        "published_date": "2026-05-06T12:02:28+02:00"
+        "published_date": "2026-05-06T12:02:00+02:00"
       },
       {
         "url": "https://www.bild.de/news/ausland/haben-sie-sich-infiziert-riesen-suche-nach-passagieren-dieses-flugs-69faf74fcd4a28c47001d957",
@@ -2925,7 +2967,8 @@
         "h2_full_text": "Auslöser sind neue Preise:Fan-Ärger beim 1. FC Nürnberg",
         "h1_h2_similarity": 50.5,
         "error": null,
-        "published_date": "2026-05-06T13:22:06+02:00"
+        "published_date": "2026-05-06T13:22:06+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/politik/inland/sexuelle-belaestigung-durch-vermieter-oder-fitnesstrainer-gesetz-schliesst-schutzluecke-69fb19f9c6d2944c8df69cc5",
@@ -3350,7 +3393,8 @@
         "h2_full_text": "Uluc mit Kampfansage:So will Jena Meister werden",
         "h1_h2_similarity": 38.7,
         "error": null,
-        "published_date": "2026-05-06T16:11:31+02:00"
+        "published_date": "2026-05-06T16:11:31+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/unterhaltung/stars-und-leute/dolly-parton-sagte-jetzt-konzerte-ab-warum-aufgeben-fuer-sie-trotzdem-nicht-in-frage-kommt-69f9df94cd4a28c47001c3ce",
@@ -3486,7 +3530,8 @@
         "h2_full_text": "„Habe es aus der Zeitung erfahren“:Klose wusste nichts von Baack-Abschied",
         "h1_h2_similarity": 34.3,
         "error": null,
-        "published_date": "2026-05-06T18:08:07+02:00"
+        "published_date": "2026-05-06T18:08:07+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/sport/fussball/champions-league-auch-gegen-psg-so-oft-kam-der-fc-bayern-nach-einer-hinspiel-pleite-weiter-69f9a3c06fe2dee7bfb13289",
@@ -3537,7 +3582,8 @@
         "h2_full_text": "Die Eisbären auf Mallorca-Kurztrip:Was Noebels über seinen Abschied denkt",
         "h1_h2_similarity": 32.9,
         "error": null,
-        "published_date": "2026-05-06T12:26:48+02:00"
+        "published_date": "2026-05-06T12:26:48+02:00",
+        "category": "Sport"
       },
       {
         "url": "https://www.bild.de/news/ausland/nach-hantavirus-ausbruch-kreuzfahrtschiff-nimmt-kurs-auf-kanaren-69faa590cd4a28c47001d2fd",
@@ -3741,7 +3787,8 @@
         "h2_full_text": "Betrug mit Flugreisen:Achtung, Abzocke beim Online-Check-in",
         "h1_h2_similarity": 26.3,
         "error": null,
-        "published_date": "2026-05-06T12:19:19+02:00"
+        "published_date": "2026-05-06T12:19:19+02:00",
+        "category": "News"
       },
       {
         "url": "https://www.bild.de/unterhaltung/tv-fernsehformate/dahoam-is-dahoam-vorschau-ungluecklicher-zufall-oder-war-es-absicht-69f8b9f76fe2dee7bfb12a3a",
@@ -3945,7 +3992,8 @@
         "h2_full_text": "Mehr drin, als Sie denken:So holen Sie alles aus Ihrem Fire TV raus",
         "h1_h2_similarity": 20.3,
         "error": null,
-        "published_date": "2026-05-06T11:32:11+02:00"
+        "published_date": "2026-05-06T11:32:11+02:00",
+        "category": "News"
       }
     ]
   }

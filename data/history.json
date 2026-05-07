@@ -37,5 +37,27 @@
       "pct_above_90": 20.2,
       "pct_above_80_plus": 35.8
     }
+  },
+  {
+    "run_date": "2026-05-06",
+    "total": 193,
+    "with_links": 162,
+    "without_links": 31,
+    "pct_without_links": 16.06217616580311,
+    "h1_h2": {
+      "pct_above_90": 20.2,
+      "pct_above_80_plus": 35.8
+    }
+  },
+  {
+    "run_date": "2026-05-06",
+    "total": 193,
+    "with_links": 162,
+    "without_links": 31,
+    "pct_without_links": 16.06217616580311,
+    "h1_h2": {
+      "pct_above_90": 20.2,
+      "pct_above_80_plus": 35.8
+    }
   }
 ]

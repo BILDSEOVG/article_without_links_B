@@ -21,12 +21,38 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
 def _get_category_from_url(url):
     path = urlparse(url).path
     parts = path.split('/')
-    if len(parts) > 1:
-        if parts[1] == "autor":
-            return "autor"
-        elif parts[1]:
-            return parts[1]
-    return "other"
+
+    ressort_mapping = {
+        "sport": "Sport",
+        "unterhaltung": "Unterhaltung",
+        "leben": "Leben",
+        "politik": "Politik",
+        "wirtschaft": "Wirtschaft",
+        "news": "News",
+        "us": "News",
+        "world": "News",
+        "bild-plus": "News",
+        "regional": "Regional",
+        "bayern": "Regional",
+        "berlin": "Regional",
+        "hamburg": "Regional",
+        "köln": "Regional",
+        "duesseldorf": "Regional",
+        "frankfurt": "Regional",
+        "muenchen": "Regional",
+        "schleswig-holstein": "Regional",
+        "niedersachsen": "Regional",
+        "nrw": "Regional",
+        "sachsen": "Regional",
+        "author": "News",
+        "autor": "News"
+    }
+
+    if len(parts) > 1 and parts[1]:
+        segment = parts[1].lower()
+        return ressort_mapping.get(segment, "News")
+
+    return "News"
 
 def _is_autor_page(url):
     path = urlparse(url).path
@@ -255,8 +281,12 @@ def run_check():
     yesterday = datetime.now(TZ_BERLIN) - timedelta(days=1)
     run_date = yesterday.date().isoformat()
 
-    # Free-Artikel without links
-    no_link_articles = [a for a in free_articles.values() if a["link_count"] == 0]
+    # Free-Artikel without links (add category)
+    no_link_articles = []
+    for url, a in free_articles.items():
+        if a["link_count"] == 0:
+            a["category"] = _get_category_from_url(url)
+            no_link_articles.append(a)
 
     # Link distribution for regular articles (excluding videos)
     link_distribution = {
@@ -329,8 +359,12 @@ def run_check():
     first_para_without_links = len(free_articles) - first_para_with_links
     first_para_pct = (first_para_with_links / len(free_articles) * 100) if len(free_articles) > 0 else 0
 
-    # Autor pages without links
-    autor_no_link_articles = [a for a in autor_articles.values() if a["link_count"] == 0]
+    # Autor pages without links (add category)
+    autor_no_link_articles = []
+    for url, a in autor_articles.items():
+        if a["link_count"] == 0:
+            a["category"] = _get_category_from_url(url)
+            autor_no_link_articles.append(a)
 
     # H1 vs. H2 Ähnlichkeit für Free-Artikel
     h1_h2_stats = {
