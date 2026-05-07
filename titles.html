@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titel Ausfüllrate | Link Monitoring Dashboard</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body style="background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);">
+    <div class="container">
+        <header style="background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h1>Titel Ausfüllrate</h1>
+                    <p>H1 vs. H2 Ähnlichkeitsanalyse</p>
+                </div>
+                <a href="./" style="color: white; font-size: 14px; text-decoration: none; margin-right: 20px;">← Zurück zum Dashboard</a>
+            </div>
+        </header>
+
+        <div class="controls">
+            <div id="lastUpdated" class="last-updated"></div>
+            <div class="date-controls">
+                <button class="date-filter-btn" id="yesterdayBtn">Gestern</button>
+                <button class="date-filter-btn" id="weekBtn">Letzte Woche</button>
+                <button class="date-filter-btn" id="monthBtn">Letzter Monat</button>
+                <button class="date-filter-btn" id="allBtn">Seit Beginn</button>
+                <input type="date" id="dateInput" class="date-input" placeholder="Oder wählen Sie ein Datum">
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="h1h2TrendChart"></canvas>
+        </div>
+
+        <div class="category-controls">
+            <label for="h1h2FilterSelect">Filter:</label>
+            <select id="h1h2FilterSelect">
+                <option value="">Alle</option>
+                <option value="90">≥ 90% ähnlich (kritisch)</option>
+                <option value="80">≥ 80% ähnlich (auffällig)</option>
+            </select>
+        </div>
+
+        <div id="h1h2Stats" class="stats-cards">
+            <div class="card">
+                <div class="label">Gesamt</div>
+                <div class="value" id="h1h2StatTotal">—</div>
+            </div>
+            <div class="card">
+                <div class="label">≥ 90% ähnlich</div>
+                <div class="value" id="h1h2StatAbove90">—</div>
+            </div>
+            <div class="card">
+                <div class="label">≥ 80% ähnlich</div>
+                <div class="value" id="h1h2StatAbove80">—</div>
+            </div>
+            <div class="card">
+                <div class="label">Ø Ähnlichkeit</div>
+                <div class="value" id="h1h2StatAverage">—</div>
+            </div>
+        </div>
+
+        <section class="articles-section">
+            <h2>H1 vs. H2 Vergleich</h2>
+            <table id="h1h2Table" class="articles-table">
+                <thead>
+                    <tr>
+                        <th>Titel</th>
+                        <th>H1</th>
+                        <th>H2</th>
+                        <th>Ähnlichkeit</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody id="h1h2Body">
+                </tbody>
+            </table>
+            <div id="h1h2NoDataMsg" class="no-data">Keine Daten verfügbar</div>
+        </section>
+    </div>
+
+    <script src="./titles.js"></script>
+</body>
+</html>

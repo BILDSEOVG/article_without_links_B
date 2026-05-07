@@ -156,6 +156,27 @@ header p {
     color: #667eea;
 }
 
+.main-tab-link {
+    margin-left: auto;
+    padding: 10px 20px;
+    background: #0891b2;
+    color: white;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    align-self: center;
+    transition: background 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.main-tab-link:hover {
+    background: #0e7490;
+}
+
 .main-tab-content {
     display: none;
 }
