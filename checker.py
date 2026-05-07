@@ -75,10 +75,25 @@ def _scrape_url(url):
         if main:
             # Find all text-link elements in main content
             text_links = main.find_all("a", class_="text-link")
-            # Filter out image links and bildstatic.de links
-            link_count = sum(1 for link in text_links
-                           if "images." not in link.get("href", "").lower()
-                           and "bildstatic.de" not in link.get("href", "").lower())
+
+            # Filter out:
+            # 1. Image links (contain "images.")
+            # 2. bildstatic.de links
+            # 3. Links inside video-centre divs
+            link_count = 0
+            for link in text_links:
+                href = link.get("href", "").lower()
+
+                # Skip image and bildstatic links
+                if "images." in href or "bildstatic.de" in href:
+                    continue
+
+                # Skip links inside video-centre divs
+                parent = link.find_parent("div", class_="video-centre")
+                if parent:
+                    continue
+
+                link_count += 1
         else:
             link_count = 0
 
