@@ -12,5 +12,19 @@
     "with_links": 167,
     "without_links": 157,
     "pct_without_links": 48.45679012345679
+  },
+  {
+    "run_date": "2026-05-06",
+    "total": 250,
+    "with_links": 162,
+    "without_links": 88,
+    "pct_without_links": 35.199999999999996
+  },
+  {
+    "run_date": "2026-05-06",
+    "total": 193,
+    "with_links": 162,
+    "without_links": 31,
+    "pct_without_links": 16.06217616580311
   }
 ]

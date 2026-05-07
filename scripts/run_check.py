@@ -53,6 +53,12 @@ def _scrape_url(url):
             plus_logo = soup.find("span", class_="plus-logo")
             is_plus_article = paywall is not None or plus_logo is not None
 
+            if not is_plus_article:
+                ob_extras = soup.find("meta", attrs={"name": "ob:extras"})
+                if ob_extras:
+                    content = ob_extras.get("content", "")
+                    is_plus_article = "isPremium=true" in content
+
         link_count = 0
         first_paragraph_link_count = 0
         internal_links = 0
