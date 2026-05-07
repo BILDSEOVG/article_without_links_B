@@ -73,27 +73,39 @@ def _scrape_url(url):
             main = soup.find("main")
 
         if main:
-            # Find all text-link elements in main content
-            text_links = main.find_all("a", class_="text-link")
+            # Check if article is primarily a video (detected by video-teaser in first figure)
+            first_figure = main.find("figure")
+            is_video_article = False
+            if first_figure:
+                video_teaser = first_figure.find("div", class_="video-teaser")
+                if video_teaser:
+                    is_video_article = True
 
-            # Filter out:
-            # 1. Image links (contain "images.")
-            # 2. bildstatic.de links
-            # 3. Links inside video-centre divs
-            link_count = 0
-            for link in text_links:
-                href = link.get("href", "").lower()
+            # If it's a video article, skip link counting
+            if is_video_article:
+                link_count = 0
+            else:
+                # Find all text-link elements in main content
+                text_links = main.find_all("a", class_="text-link")
 
-                # Skip image and bildstatic links
-                if "images." in href or "bildstatic.de" in href:
-                    continue
+                # Filter out:
+                # 1. Image links (contain "images.")
+                # 2. bildstatic.de links
+                # 3. Links inside video-centre divs
+                link_count = 0
+                for link in text_links:
+                    href = link.get("href", "").lower()
 
-                # Skip links inside video-centre divs
-                parent = link.find_parent("div", class_="video-centre")
-                if parent:
-                    continue
+                    # Skip image and bildstatic links
+                    if "images." in href or "bildstatic.de" in href:
+                        continue
 
-                link_count += 1
+                    # Skip links inside video-centre divs
+                    parent = link.find_parent("div", class_="video-centre")
+                    if parent:
+                        continue
+
+                    link_count += 1
         else:
             link_count = 0
 
