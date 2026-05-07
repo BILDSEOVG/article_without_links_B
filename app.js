@@ -314,6 +314,49 @@ async function loadLinkStatistics() {
             }
         });
 
+        // Chart for external links tab
+        const ctx3 = document.getElementById("internalExternalChart2");
+        if (ctx3) {
+            if (window.internalExternalChart2) window.internalExternalChart2.destroy();
+
+            window.internalExternalChart2 = new Chart(ctx3, {
+                type: "doughnut",
+                data: {
+                    labels: ["Mehr interne", "Mehr externe", "Gleich"],
+                    datasets: [{
+                        data: [
+                            ie.more_internal,
+                            ie.more_external,
+                            ie.equal
+                        ],
+                        backgroundColor: [
+                            "#667eea",
+                            "#764ba2",
+                            "#ddd"
+                        ],
+                        borderColor: "white",
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: "bottom"
+                        }
+                    }
+                }
+            });
+
+            document.getElementById("articlesMoreInternal2").textContent = ie.more_internal;
+            document.getElementById("articlesMoreExternal2").textContent = ie.more_external;
+            document.getElementById("articlesEqual2").textContent = ie.equal;
+
+            document.getElementById("externalNoDataMsg").style.display = "none";
+            document.getElementById("externalArticlesTable").style.display = "table";
+        }
+
     } catch (error) {
         console.error("Error loading link statistics:", error);
     }

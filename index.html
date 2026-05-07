@@ -28,11 +28,12 @@
 
         <div id="tab-free-articles" class="main-tab-content active">
         <div class="sub-tabs">
-            <button class="tab-btn active" data-tab="tab-all-links">Alle Links</button>
-            <button class="tab-btn" data-tab="tab-first-para">Links im 1. Absatz</button>
+            <button class="tab-btn active" data-tab="tab-without-links">Ohne Links</button>
+            <button class="tab-btn" data-tab="tab-first-para">Mit Links im 1. Absatz</button>
+            <button class="tab-btn" data-tab="tab-external-links">Mehr externe als interne Links</button>
         </div>
 
-        <div id="tab-all-links" class="tab-content active">
+        <div id="tab-without-links" class="tab-content active">
         <div id="stats" class="stats-cards">
             <div class="card">
                 <div class="label">Datum</div>
@@ -147,6 +148,52 @@
         <div id="categoryBreakdown" class="category-breakdown">
             <h3>Nach Ressort</h3>
             <div id="categoryList" class="category-list"></div>
+        </div>
+        </div>
+
+        <div id="tab-external-links" class="tab-content">
+        <div class="link-statistics-section">
+            <h3>Artikel mit mehr externen als internen Links</h3>
+
+            <div class="stats-row">
+                <div class="chart-box">
+                    <h4>Interne vs. Externe Links</h4>
+                    <canvas id="internalExternalChart2"></canvas>
+                </div>
+            </div>
+
+            <div class="link-summary">
+                <div class="summary-card">
+                    <div class="summary-label">Artikel mit mehr internen Links</div>
+                    <div class="summary-value" id="articlesMoreInternal2">—</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Artikel mit mehr externen Links</div>
+                    <div class="summary-value" id="articlesMoreExternal2">—</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Artikel mit gleich vielen Links</div>
+                    <div class="summary-value" id="articlesEqual2">—</div>
+                </div>
+            </div>
+        </div>
+
+        <section class="articles-section">
+            <h2>Artikel mit mehr externen als internen Links</h2>
+            <table id="externalArticlesTable" class="articles-table">
+                <thead>
+                    <tr>
+                        <th>Titel</th>
+                        <th>Kategorie</th>
+                        <th>Veröffentlicht</th>
+                        <th>URL</th>
+                    </tr>
+                </thead>
+                <tbody id="externalArticlesBody">
+                </tbody>
+            </table>
+            <div id="externalNoDataMsg" class="no-data">Keine Daten verfügbar</div>
+        </section>
         </div>
         </div>
         </div>
