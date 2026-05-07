@@ -488,6 +488,10 @@ document.getElementById("expandBtn").addEventListener("click", () => {
     loadFirstParaStats();
 });
 
+document.getElementById("titlesBtn").addEventListener("click", () => {
+    window.location.href = "./titles.html";
+});
+
 async function loadAutorenseiten(date = null) {
     try {
         let dataFile = date;

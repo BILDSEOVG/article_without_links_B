@@ -161,6 +161,7 @@ header p {
     padding: 10px 20px;
     background: #ff8c42;
     color: white;
+    border: none;
     border-radius: 6px;
     font-size: 14px;
     font-weight: 700;
@@ -171,6 +172,7 @@ header p {
     transition: background 0.2s ease;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .main-tab-link:hover {
