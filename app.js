@@ -521,6 +521,10 @@ document.querySelectorAll(".main-tab-btn").forEach(btn => {
 
         document.querySelectorAll(".main-tab-content").forEach(c => c.classList.remove("active"));
         document.getElementById(tabName).classList.add("active");
+
+        if (tabName === "tab-h1-h2") {
+            loadH1H2Stats();
+        }
     });
 });
 
@@ -536,8 +540,6 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
 
         if (tabName === "tab-first-para") {
             loadFirstParaStats();
-        } else if (tabName === "tab-h1-h2") {
-            loadH1H2Stats();
         }
     });
 });
