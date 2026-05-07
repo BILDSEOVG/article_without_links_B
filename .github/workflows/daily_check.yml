@@ -1,0 +1,36 @@
+name: Daily Link Check
+
+on:
+  schedule:
+    - cron: '0 4 * * *'  # 4:00 UTC = 6:00 Berlin (CET) / 7:00 Berlin (CEST)
+  workflow_dispatch:      # Allow manual triggering from GitHub UI
+
+jobs:
+  daily-check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 lxml pytz
+
+      - name: Run link check
+        run: python scripts/run_check.py
+
+      - name: Configure git
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+      - name: Commit and push data
+        run: |
+          git add data/
+          git diff --staged --quiet || git commit -m "Daily check $(date '+%Y-%m-%d')"
+          git push
