@@ -329,6 +329,47 @@ header p {
     font-size: 14px;
 }
 
+.breakdown-section {
+    padding: 30px 40px;
+    background: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+}
+
+.breakdown-section h3 {
+    margin: 0 0 20px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.breakdown-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.breakdown-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.breakdown-label {
+    font-size: 12px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.breakdown-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #764ba2;
+}
+
 @media (max-width: 768px) {
     .controls {
         flex-direction: column;

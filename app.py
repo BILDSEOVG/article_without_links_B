@@ -38,8 +38,19 @@ def get_stats():
     articles = checker.get_articles_for_run(run_id)
     no_link_articles = [a for a in articles if a["link_count"] == 0]
 
+    # Split "without links" into videos, plus articles, and normal articles
+    videos_without_links = [a for a in no_link_articles if a.get("is_video", 0) == 1]
+    plus_articles_without_links = [a for a in no_link_articles if a.get("is_plus_article", 0) == 1 and a.get("is_video", 0) == 0]
+    normal_articles_without_links = [a for a in no_link_articles if a.get("is_video", 0) == 0 and a.get("is_plus_article", 0) == 0]
+
     return jsonify({
         "stats": stats,
+        "breakdown": {
+            "videos": len(videos_without_links),
+            "plus_articles": len(plus_articles_without_links),
+            "normal_articles": len(normal_articles_without_links),
+            "total_without_links": len(no_link_articles)
+        },
         "articles_without_links": no_link_articles
     })
 

@@ -45,6 +45,8 @@ def _init_db():
             first_paragraph_link_count INTEGER,
             category TEXT,
             published_date TEXT,
+            is_video INTEGER,
+            is_plus_article INTEGER,
             FOREIGN KEY(run_id) REFERENCES runs(id)
         )
     """)
@@ -68,67 +70,66 @@ def _scrape_url(url):
         title_tag = soup.find("meta", property="og:title")
         title = title_tag.get("content", "Unknown") if title_tag else "Unknown"
 
-        # Find main article content
+        # Detect video by og:type meta tag
+        og_type = soup.find("meta", property="og:type")
+        is_video = og_type and og_type.get("content") == "video"
+
+        # Detect Plus article by paywall or plus-logo
         main = soup.find("main", id="main")
         if not main:
             main = soup.find("main")
 
+        is_plus_article = False
+        if soup:
+            paywall = soup.find("div", class_="paywall")
+            plus_logo = soup.find("span", class_="plus-logo")
+            is_plus_article = paywall is not None or plus_logo is not None
+
         link_count = 0
         first_paragraph_link_count = 0
 
-        if main:
-            # Check if article is primarily a video (detected by video-teaser in first figure)
-            first_figure = main.find("figure")
-            is_video_article = False
-            if first_figure:
-                video_teaser = first_figure.find("div", class_="video-teaser")
-                if video_teaser:
-                    is_video_article = True
+        if main and not is_video:
+            # Find all text-link elements in main content
+            text_links = main.find_all("a", class_="text-link")
 
-            # If it's a video article, skip link counting
-            if is_video_article:
-                link_count = 0
-                first_paragraph_link_count = 0
-            else:
-                # Find all text-link elements in main content
-                text_links = main.find_all("a", class_="text-link")
+            # Filter out:
+            # 1. Image links (contain "images.")
+            # 2. bildstatic.de links
+            # 3. Links inside video-centre divs
+            link_count = 0
+            for link in text_links:
+                href = link.get("href", "").lower()
 
-                # Filter out:
-                # 1. Image links (contain "images.")
-                # 2. bildstatic.de links
-                # 3. Links inside video-centre divs
-                link_count = 0
-                for link in text_links:
+                # Skip image and bildstatic links
+                if "images." in href or "bildstatic.de" in href:
+                    continue
+
+                # Skip links inside video-centre divs
+                parent = link.find_parent("div", class_="video-centre")
+                if parent:
+                    continue
+
+                link_count += 1
+
+            # Count links in first paragraph
+            first_paragraph = main.find("p")
+            if first_paragraph:
+                para_links = first_paragraph.find_all("a", class_="text-link")
+                for link in para_links:
                     href = link.get("href", "").lower()
-
-                    # Skip image and bildstatic links
-                    if "images." in href or "bildstatic.de" in href:
-                        continue
-
-                    # Skip links inside video-centre divs
-                    parent = link.find_parent("div", class_="video-centre")
-                    if parent:
-                        continue
-
-                    link_count += 1
-
-                # Count links in first paragraph
-                first_paragraph = main.find("p")
-                if first_paragraph:
-                    para_links = first_paragraph.find_all("a", class_="text-link")
-                    for link in para_links:
-                        href = link.get("href", "").lower()
-                        # Apply same filters
-                        if "images." not in href and "bildstatic.de" not in href:
-                            parent = link.find_parent("div", class_="video-centre")
-                            if not parent:
-                                first_paragraph_link_count += 1
+                    # Apply same filters
+                    if "images." not in href and "bildstatic.de" not in href:
+                        parent = link.find_parent("div", class_="video-centre")
+                        if not parent:
+                            first_paragraph_link_count += 1
 
         return {
             "url": url,
             "title": title,
             "link_count": link_count,
             "first_paragraph_link_count": first_paragraph_link_count,
+            "is_video": 1 if is_video else 0,
+            "is_plus_article": 1 if is_plus_article else 0,
             "error": None
         }
     except Exception as e:
@@ -138,6 +139,8 @@ def _scrape_url(url):
             "title": "Unknown",
             "link_count": 0,
             "first_paragraph_link_count": 0,
+            "is_video": 0,
+            "is_plus_article": 0,
             "error": str(e)
         }
 
@@ -255,9 +258,9 @@ def run_check(progress_callback=None):
     for url, result in scraped.items():
         category = _get_category_from_url(url)
         c.execute("""
-            INSERT INTO articles (run_id, url, title, link_count, first_paragraph_link_count, category, published_date)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
-        """, (run_id, url, result["title"], result["link_count"], result.get("first_paragraph_link_count", 0), category, result.get("published_date", "")))
+            INSERT INTO articles (run_id, url, title, link_count, first_paragraph_link_count, category, published_date, is_video, is_plus_article)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (run_id, url, result["title"], result["link_count"], result.get("first_paragraph_link_count", 0), category, result.get("published_date", ""), result.get("is_video", 0), result.get("is_plus_article", 0)))
 
     conn.commit()
     conn.close()

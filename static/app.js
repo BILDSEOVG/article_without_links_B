@@ -24,6 +24,13 @@ async function loadStats(date = null) {
         document.getElementById("statWithoutLinks").textContent = stats.without_links;
         document.getElementById("statPercent").textContent = stats.pct_without_links.toFixed(1) + "%";
 
+        // Update breakdown
+        if (data.breakdown) {
+            document.getElementById("breakdownVideos").textContent = data.breakdown.videos;
+            document.getElementById("breakdownPlus").textContent = data.breakdown.plus_articles;
+            document.getElementById("breakdownNormal").textContent = data.breakdown.normal_articles;
+        }
+
         // Update articles table
         const tbody = document.getElementById("articlesBody");
         tbody.innerHTML = "";
