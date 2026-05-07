@@ -1,6 +1,7 @@
 let trendChart = null;
 let linkDistributionChart = null;
 let internalExternalChart = null;
+let h1h2TrendChart = null;
 
 let allHistory = [];
 
@@ -126,6 +127,73 @@ async function loadHistory() {
                 }
             }
         });
+
+        const ctx2 = document.getElementById("h1h2TrendChart")?.getContext("2d");
+        if (ctx2) {
+            if (h1h2TrendChart) h1h2TrendChart.destroy();
+            h1h2TrendChart = new Chart(ctx2, {
+                type: "line",
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: "≥ 90% ähnlich (kritisch)",
+                            data: allHistory.map(h => h.h1_h2?.pct_above_90 ?? null),
+                            borderColor: "#FF6B6B",
+                            backgroundColor: "rgba(255, 107, 107, 0.1)",
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 5,
+                            pointBackgroundColor: "#FF6B6B",
+                            pointBorderColor: "#fff",
+                            pointBorderWidth: 2,
+                            pointHoverRadius: 7
+                        },
+                        {
+                            label: "≥ 80% ähnlich (auffällig)",
+                            data: allHistory.map(h => h.h1_h2?.pct_above_80_plus ?? null),
+                            borderColor: "#e6a817",
+                            backgroundColor: "rgba(230, 168, 23, 0.1)",
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 5,
+                            pointBackgroundColor: "#e6a817",
+                            pointBorderColor: "#fff",
+                            pointBorderWidth: 2,
+                            pointHoverRadius: 7
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: {
+                                font: { size: 12 }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: ctx => ctx.parsed.y + "%"
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                callback: value => value + "%"
+                            }
+                        }
+                    }
+                }
+            });
+        }
     } catch (error) {
         console.error("Error loading history:", error);
     }

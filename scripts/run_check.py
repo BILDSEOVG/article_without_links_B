@@ -342,6 +342,8 @@ def run_check():
             sum(a.get("h1_h2_similarity", 0) for a in free_articles.values()) / len(free_articles), 1
         ) if free_articles else 0.0
     }
+    h1_h2_stats["pct_above_90"] = round(h1_h2_stats["above_90"] / h1_h2_stats["total"] * 100, 1) if h1_h2_stats["total"] else 0.0
+    h1_h2_stats["pct_above_80_plus"] = round((h1_h2_stats["above_90"] + h1_h2_stats["above_80"]) / h1_h2_stats["total"] * 100, 1) if h1_h2_stats["total"] else 0.0
     h1_h2_articles = sorted(
         list(free_articles.values()),
         key=lambda a: a.get("h1_h2_similarity", 0),
@@ -406,7 +408,11 @@ def run_check():
         "total": total,
         "with_links": with_links,
         "without_links": without_links,
-        "pct_without_links": pct_without_links
+        "pct_without_links": pct_without_links,
+        "h1_h2": {
+            "pct_above_90": h1_h2_stats["pct_above_90"],
+            "pct_above_80_plus": h1_h2_stats["pct_above_80_plus"]
+        }
     }
 
     history.append(summary)
