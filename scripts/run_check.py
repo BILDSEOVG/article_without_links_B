@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 import pytz
 from urllib.parse import urlparse
 import logging
+from difflib import SequenceMatcher
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -59,6 +60,28 @@ def _scrape_url(url):
                     content = ob_extras.get("content", "")
                     is_plus_article = "isPremium=true" in content
 
+        # H1 vs. H2 Ähnlichkeit
+        h1_text = ""
+        h2_kicker = ""
+        h2_headline = ""
+        h2_full_text = ""
+        h1_h2_similarity = 0.0
+
+        h1_tag = soup.find("h1")
+        h1_text = h1_tag.get_text(strip=True) if h1_tag else ""
+
+        h2 = soup.find("h2", class_=lambda c: c and "document-title" in c) if not is_video else None
+        if h2:
+            kicker_span = h2.find("span", class_="kicker")
+            headline_span = h2.find("span", class_="headline")
+            h2_kicker = kicker_span.get_text(strip=True) if kicker_span else ""
+            h2_headline = headline_span.get_text(strip=True) if headline_span else ""
+            h2_full_text = h2.get_text(strip=True)
+
+            if h1_text and h2_full_text:
+                similarity = SequenceMatcher(None, h1_text.lower(), h2_full_text.lower()).ratio()
+                h1_h2_similarity = round(similarity * 100, 1)
+
         link_count = 0
         first_paragraph_link_count = 0
         internal_links = 0
@@ -103,6 +126,11 @@ def _scrape_url(url):
             "is_plus_article": 1 if is_plus_article else 0,
             "internal_links": internal_links,
             "external_links": external_links,
+            "h1_text": h1_text,
+            "h2_kicker": h2_kicker,
+            "h2_headline": h2_headline,
+            "h2_full_text": h2_full_text,
+            "h1_h2_similarity": h1_h2_similarity,
             "error": None
         }
     except Exception as e:
@@ -116,6 +144,11 @@ def _scrape_url(url):
             "is_plus_article": 0,
             "internal_links": 0,
             "external_links": 0,
+            "h1_text": "",
+            "h2_kicker": "",
+            "h2_headline": "",
+            "h2_full_text": "",
+            "h1_h2_similarity": 0.0,
             "error": str(e)
         }
 
@@ -299,6 +332,22 @@ def run_check():
     # Autor pages without links
     autor_no_link_articles = [a for a in autor_articles.values() if a["link_count"] == 0]
 
+    # H1 vs. H2 Ähnlichkeit für Free-Artikel
+    h1_h2_stats = {
+        "total": len(free_articles),
+        "above_90": sum(1 for a in free_articles.values() if a.get("h1_h2_similarity", 0) >= 90),
+        "above_80": sum(1 for a in free_articles.values() if 80 <= a.get("h1_h2_similarity", 0) < 90),
+        "below_80": sum(1 for a in free_articles.values() if a.get("h1_h2_similarity", 0) < 80),
+        "average_similarity": round(
+            sum(a.get("h1_h2_similarity", 0) for a in free_articles.values()) / len(free_articles), 1
+        ) if free_articles else 0.0
+    }
+    h1_h2_articles = sorted(
+        list(free_articles.values()),
+        key=lambda a: a.get("h1_h2_similarity", 0),
+        reverse=True
+    )
+
     daily_data = {
         "stats": {
             "run_date": run_date,
@@ -334,6 +383,10 @@ def run_check():
                 "pct_without_links": autor_pct_without_links
             },
             "articles_without_links": autor_no_link_articles
+        },
+        "h1_h2": {
+            "stats": h1_h2_stats,
+            "articles": h1_h2_articles
         }
     }
 

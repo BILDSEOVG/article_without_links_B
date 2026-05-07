@@ -367,6 +367,83 @@ function updateLastUpdated(dateStr) {
     document.getElementById("lastUpdated").textContent = `Zuletzt aktualisiert: ${formatted}`;
 }
 
+async function loadH1H2Stats(threshold = null) {
+    try {
+        const dateInput = document.getElementById("dateInput");
+        const date = dateInput.value || null;
+
+        let dataFile = date;
+        if (!date) {
+            if (allHistory.length === 0) {
+                await loadHistory();
+            }
+            if (allHistory.length > 0) {
+                dataFile = allHistory[allHistory.length - 1].run_date;
+            }
+        }
+
+        if (!dataFile) {
+            document.getElementById("h1h2Table").style.display = "none";
+            document.getElementById("h1h2NoDataMsg").style.display = "block";
+            return;
+        }
+
+        const response = await fetch(`./data/${dataFile}.json`);
+        if (!response.ok) {
+            document.getElementById("h1h2Table").style.display = "none";
+            document.getElementById("h1h2NoDataMsg").style.display = "block";
+            return;
+        }
+
+        const data = await response.json();
+        const stats = data.h1_h2.stats;
+        let articles = data.h1_h2.articles;
+
+        // Filtern nach Schwellenwert
+        if (threshold) {
+            articles = articles.filter(a => a.h1_h2_similarity >= threshold);
+        }
+
+        // Stats-Karten füllen
+        document.getElementById("h1h2StatTotal").textContent = stats.total;
+        document.getElementById("h1h2StatAbove90").textContent = stats.above_90;
+        document.getElementById("h1h2StatAbove80").textContent = stats.above_80;
+        document.getElementById("h1h2StatAverage").textContent = stats.average_similarity + "%";
+
+        // Tabelle füllen
+        const tbody = document.getElementById("h1h2Body");
+        tbody.innerHTML = "";
+
+        if (articles.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: #999;">Keine Artikel mit dieser Ähnlichkeit</td></tr>';
+        } else {
+            articles.forEach(article => {
+                const similarity = article.h1_h2_similarity;
+                let badgeClass = "similarity-badge--green";
+                if (similarity >= 90) badgeClass = "similarity-badge--red";
+                else if (similarity >= 80) badgeClass = "similarity-badge--yellow";
+
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td><strong>${escapeHtml(article.title)}</strong></td>
+                    <td style="font-size: 12px; max-width: 200px; overflow: hidden; text-overflow: ellipsis;">${escapeHtml(article.h1_text)}</td>
+                    <td style="font-size: 12px; max-width: 200px; overflow: hidden; text-overflow: ellipsis;">${escapeHtml(article.h2_full_text)}</td>
+                    <td><span class="similarity-badge ${badgeClass}">${similarity}%</span></td>
+                    <td><a href="${article.url}" target="_blank">Link ↗</a></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        document.getElementById("h1h2NoDataMsg").style.display = "none";
+        document.getElementById("h1h2Table").style.display = "table";
+    } catch (error) {
+        console.error("Error loading H1/H2 stats:", error);
+        document.getElementById("h1h2Table").style.display = "none";
+        document.getElementById("h1h2NoDataMsg").style.display = "block";
+    }
+}
+
 document.querySelectorAll(".main-tab-btn").forEach(btn => {
     btn.addEventListener("click", () => {
         const tabName = btn.getAttribute("data-tab");
@@ -391,6 +468,8 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
 
         if (tabName === "tab-first-para") {
             loadFirstParaStats();
+        } else if (tabName === "tab-h1-h2") {
+            loadH1H2Stats();
         }
     });
 });
@@ -401,16 +480,21 @@ function setDateAndLoad(date) {
     // Remove active class from all filter buttons
     document.querySelectorAll(".date-filter-btn").forEach(btn => btn.classList.remove("active"));
 
+    // Reset H1/H2 filter dropdown
+    document.getElementById("h1h2FilterSelect").value = "";
+
     if (date) {
         loadStats(date);
         loadFirstParaStats();
         loadLinkStatistics();
         loadAutorenseiten(date);
+        loadH1H2Stats();
     } else {
         loadStats();
         loadFirstParaStats();
         loadLinkStatistics();
         loadAutorenseiten();
+        loadH1H2Stats();
     }
 }
 
@@ -465,16 +549,21 @@ document.getElementById("allBtn").addEventListener("click", () => {
 document.getElementById("dateInput").addEventListener("change", (e) => {
     document.querySelectorAll(".date-filter-btn").forEach(btn => btn.classList.remove("active"));
 
+    // Reset H1/H2 filter dropdown
+    document.getElementById("h1h2FilterSelect").value = "";
+
     if (e.target.value) {
         loadStats(e.target.value);
         loadFirstParaStats();
         loadLinkStatistics();
         loadAutorenseiten(e.target.value);
+        loadH1H2Stats();
     } else {
         loadStats();
         loadFirstParaStats();
         loadLinkStatistics();
         loadAutorenseiten();
+        loadH1H2Stats();
     }
 });
 
@@ -486,6 +575,11 @@ document.getElementById("expandBtn").addEventListener("click", () => {
     const select = document.getElementById("categorySelect");
     select.value = "all";
     loadFirstParaStats();
+});
+
+document.getElementById("h1h2FilterSelect").addEventListener("change", (e) => {
+    const threshold = e.target.value ? parseInt(e.target.value) : null;
+    loadH1H2Stats(threshold);
 });
 
 async function loadAutorenseiten(date = null) {

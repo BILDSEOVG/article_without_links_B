@@ -534,6 +534,28 @@ header p {
     color: #667eea;
 }
 
+.similarity-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+
+.similarity-badge--red {
+    background: #FF6B6B;
+}
+
+.similarity-badge--yellow {
+    background: #e6a817;
+    color: #333;
+}
+
+.similarity-badge--green {
+    background: #6BCB77;
+}
+
 @media (max-width: 768px) {
     .controls {
         flex-direction: column;
