@@ -1,6 +1,7 @@
 let trendChart = null;
 let linkDistributionChart = null;
 let internalExternalChart = null;
+let ressortNoLinksChart = null;
 
 let allHistory = [];
 
@@ -317,6 +318,49 @@ async function loadLinkStatistics() {
 
             document.getElementById("externalNoDataMsg").style.display = "none";
             document.getElementById("externalArticlesTable").style.display = "table";
+        }
+
+        // Ressort distribution for articles without links
+        const ctx2 = document.getElementById("ressortNoLinksChart");
+        if (ctx2) {
+            const articles = data.articles_without_links;
+            const ressortCounts = {};
+
+            articles.forEach(article => {
+                const ressort = article.category || "Sonstige";
+                ressortCounts[ressort] = (ressortCounts[ressort] || 0) + 1;
+            });
+
+            const sortedRessorts = Object.keys(ressortCounts).sort();
+            const colors = [
+                "#667eea", "#764ba2", "#FF6B6B", "#FFD93D",
+                "#6BCB77", "#4D96FF", "#9D84B7", "#FF8FB1",
+                "#17a2b8", "#fd7e14", "#dc3545", "#6f42c1"
+            ];
+
+            if (ressortNoLinksChart) ressortNoLinksChart.destroy();
+
+            ressortNoLinksChart = new Chart(ctx2, {
+                type: "doughnut",
+                data: {
+                    labels: sortedRessorts,
+                    datasets: [{
+                        data: sortedRessorts.map(r => ressortCounts[r]),
+                        backgroundColor: colors.slice(0, sortedRessorts.length),
+                        borderColor: "white",
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: "bottom"
+                        }
+                    }
+                }
+            });
         }
 
     } catch (error) {
