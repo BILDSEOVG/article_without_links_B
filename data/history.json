@@ -268,5 +268,16 @@
       "pct_above_90": 26.9,
       "pct_above_80_plus": 36.5
     }
+  },
+  {
+    "run_date": "2026-05-26",
+    "total": 221,
+    "with_links": 206,
+    "without_links": 15,
+    "pct_without_links": 6.787330316742081,
+    "h1_h2": {
+      "pct_above_90": 25.8,
+      "pct_above_80_plus": 38.5
+    }
   }
 ]
