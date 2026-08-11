@@ -1,5 +1,7 @@
 let h1h2TrendChart = null;
+let optTrendChart = null;
 let allHistory = [];
+let optLoaded = false;
 
 function formatDate(dateStr) {
     const date = new Date(dateStr);
@@ -227,6 +229,177 @@ function getDateForFilter(filterType) {
     }
 }
 
+function renderOptTrendChart() {
+    const histWithScore = allHistory.filter(h => h.seo_score && h.seo_score.avg != null);
+    if (histWithScore.length === 0) return;
+
+    const ctx = document.getElementById("optTrendChart").getContext("2d");
+    if (optTrendChart) optTrendChart.destroy();
+
+    optTrendChart = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: histWithScore.map(h => formatDate(h.run_date)),
+            datasets: [{
+                label: "Ø SEO Score",
+                data: histWithScore.map(h => h.seo_score.avg),
+                borderColor: "#ff8c42",
+                backgroundColor: "rgba(255, 140, 66, 0.1)",
+                borderWidth: 2,
+                fill: true,
+                tension: 0.4,
+                pointRadius: 5,
+                pointBackgroundColor: "#ff8c42",
+                pointBorderColor: "#fff",
+                pointBorderWidth: 2,
+                pointHoverRadius: 7
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: true, labels: { font: { size: 12 } } },
+                tooltip: { callbacks: { label: ctx => "Ø " + ctx.parsed.y.toFixed(1) + " Punkte" } }
+            },
+            scales: {
+                y: { beginAtZero: true, ticks: { callback: v => v + " Pkt." } }
+            }
+        }
+    });
+}
+
+function buildCriteriaCells(c) {
+    if (!c) return { h3: "—", links: "—", media: "—", tech: "—" };
+
+    const h3Pts = (c.h3_count?.points || 0) + (c.keyword_in_h3?.points || 0) + (c.unique_h3?.points || 0);
+    const h3Title = `H3-Anzahl: ${c.h3_count?.value || 0}P | KW in H3: ${c.keyword_in_h3?.value || 0}P | Einzigartig: ${c.unique_h3?.value || 0}P`;
+
+    const linkPts = (c.links?.points || 0) + (c.no_first_para_link?.points || 0) + (c.no_duplicate_links?.points || 0) + (c.anchor_texts?.points || 0);
+    const linkTitle = `Links ${c.links?.value || 0} (max 8): ${c.links?.points || 0}P | Kein Link 1.Abs.: ${c.no_first_para_link?.points || 0}P | Keine Duplikate: ${c.no_duplicate_links?.points || 0}P | Ankertexte: ${c.anchor_texts?.points || 0}P`;
+
+    const mediaPts = c.rich_media?.points || 0;
+    const d = c.rich_media?.detail || {};
+    const mediaItems = ["table","video","widget","list","infographic"].filter(k => d[k]).join(", ");
+    const mediaTitle = `Media: ${mediaItems || "keine"}`;
+
+    const techPts = (c.keyword_in_title?.points || 0) + (c.title_length?.points || 0) + (c.meta_desc_length?.points || 0) + (c.meta_desc_extra?.points || 0) + (c.keyword_in_caption?.points || 0);
+    const techTitle = `KW in Seitentitel: ${c.keyword_in_title?.points || 0}P | Titel-Länge (${c.title_length?.value || 0}): ${c.title_length?.points || 0}P | Meta (${c.meta_desc_length?.value || 0}): ${c.meta_desc_length?.points || 0}P | Meta-Zusatz: ${c.meta_desc_extra?.points || 0}P | KW Caption: ${c.keyword_in_caption?.points || 0}P`;
+
+    return {
+        h3:    `<span class="criteria-pts" title="${escapeHtml(h3Title)}">${h3Pts}P</span>`,
+        links: `<span class="criteria-pts" title="${escapeHtml(linkTitle)}">${linkPts}P</span>`,
+        media: `<span class="criteria-pts" title="${escapeHtml(mediaTitle)}">${mediaPts}P</span>`,
+        tech:  `<span class="criteria-pts" title="${escapeHtml(techTitle)}">${techPts}P</span>`,
+    };
+}
+
+async function loadOptimierungsrate() {
+    try {
+        const dateInput = document.getElementById("optDateInput");
+        const date = dateInput.value || null;
+
+        let dataFile = date;
+        if (!date) {
+            if (allHistory.length === 0) await loadHistory();
+            if (allHistory.length > 0) dataFile = allHistory[allHistory.length - 1].run_date;
+        }
+
+        if (!dataFile) {
+            document.getElementById("optTable").style.display = "none";
+            document.getElementById("optNoDataMsg").style.display = "block";
+            return;
+        }
+
+        const response = await fetch(`./data/${dataFile}.json`);
+        if (!response.ok) {
+            document.getElementById("optTable").style.display = "none";
+            document.getElementById("optNoDataMsg").style.display = "block";
+            return;
+        }
+
+        const data = await response.json();
+        const articles = (data.h1_h2?.articles || []).filter(a => a.seo_score);
+
+        if (articles.length === 0) {
+            document.getElementById("optTable").style.display = "none";
+            const msg = document.getElementById("optNoDataMsg");
+            msg.textContent = "SEO Score noch nicht verfügbar – nach dem nächsten Crawl-Lauf erneut aufrufen.";
+            msg.style.display = "block";
+            renderOptTrendChart();
+            return;
+        }
+
+        const scores = articles.map(a => a.seo_score.total);
+        const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+        document.getElementById("optStatAvg").textContent = avg.toFixed(1);
+        document.getElementById("optStatMax").textContent = Math.max(...scores);
+        document.getElementById("optStatMin").textContent = Math.min(...scores);
+        document.getElementById("optStatTotal").textContent = articles.length;
+
+        const sorted = [...articles].sort((a, b) => a.seo_score.total - b.seo_score.total);
+        const tbody = document.getElementById("optBody");
+        tbody.innerHTML = "";
+
+        sorted.forEach(article => {
+            const total = article.seo_score.total;
+            const scoreClass = total >= 20 ? "score-badge--green" : total >= 10 ? "score-badge--yellow" : "score-badge--red";
+            const cells = buildCriteriaCells(article.seo_score.criteria);
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td><strong>${escapeHtml(article.title)}</strong></td>
+                <td><span class="score-badge ${scoreClass}">${total}</span></td>
+                <td class="criteria-pts-cell">${cells.h3}</td>
+                <td class="criteria-pts-cell">${cells.links}</td>
+                <td class="criteria-pts-cell">${cells.media}</td>
+                <td class="criteria-pts-cell">${cells.tech}</td>
+                <td><a href="${article.url}" target="_blank">Link ↗</a></td>
+            `;
+            tbody.appendChild(row);
+        });
+
+        document.getElementById("optNoDataMsg").style.display = "none";
+        document.getElementById("optTable").style.display = "table";
+
+        const date2 = new Date(dataFile);
+        document.getElementById("optLastUpdated").textContent = "Zuletzt aktualisiert: " + date2.toLocaleDateString("de-DE", { year: "numeric", month: "long", day: "numeric" });
+
+        renderOptTrendChart();
+
+    } catch (error) {
+        console.error("Error loading Optimierungsrate:", error);
+        document.getElementById("optTable").style.display = "none";
+        document.getElementById("optNoDataMsg").style.display = "block";
+    }
+}
+
+function setOptDateAndLoad(date) {
+    document.getElementById("optDateInput").value = date || "";
+    document.querySelectorAll("#tab-optimierung .date-filter-btn").forEach(b => b.classList.remove("active"));
+    loadOptimierungsrate();
+}
+
+document.getElementById("optYesterdayBtn").addEventListener("click", () => {
+    setOptDateAndLoad(getDateForFilter("yesterday"));
+    document.getElementById("optYesterdayBtn").classList.add("active");
+});
+document.getElementById("optWeekBtn").addEventListener("click", () => {
+    setOptDateAndLoad(getDateForFilter("week"));
+    document.getElementById("optWeekBtn").classList.add("active");
+});
+document.getElementById("optMonthBtn").addEventListener("click", () => {
+    setOptDateAndLoad(getDateForFilter("month"));
+    document.getElementById("optMonthBtn").classList.add("active");
+});
+document.getElementById("optAllBtn").addEventListener("click", () => {
+    setOptDateAndLoad(null);
+    document.getElementById("optAllBtn").classList.add("active");
+});
+document.getElementById("optDateInput").addEventListener("change", () => {
+    document.querySelectorAll("#tab-optimierung .date-filter-btn").forEach(b => b.classList.remove("active"));
+    loadOptimierungsrate();
+});
+
 document.getElementById("yesterdayBtn").addEventListener("click", () => {
     const date = getDateForFilter("yesterday");
     setDateAndLoad(date);
@@ -270,6 +443,11 @@ document.querySelectorAll(".titles-tab-btn").forEach(btn => {
 
         document.querySelectorAll(".titles-tab-content").forEach(c => c.classList.remove("active"));
         document.getElementById(tabName).classList.add("active");
+
+        if (tabName === "tab-optimierung" && !optLoaded) {
+            optLoaded = true;
+            loadOptimierungsrate();
+        }
     });
 });
 

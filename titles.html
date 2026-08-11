@@ -46,25 +46,25 @@
         .titles-tab-content.active {
             display: block;
         }
-        .placeholder-section {
-            padding: 60px 40px;
-            text-align: center;
-            background: #f8f9fa;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        .score-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            color: white;
         }
-        .placeholder-section h2 {
-            font-size: 32px;
-            color: #333;
-            margin: 0 0 20px 0;
-        }
-        .placeholder-section p {
-            font-size: 18px;
-            color: #999;
-            margin: 0;
+        .score-badge--green  { background: #22c55e; }
+        .score-badge--yellow { background: #e6a817; }
+        .score-badge--red    { background: #FF6B6B; }
+        .criteria-pts {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #444;
+            cursor: help;
         }
     </style>
 </head>
@@ -149,10 +149,58 @@
         </div>
 
         <div id="tab-optimierung" class="titles-tab-content">
-            <div class="placeholder-section">
-                <h2>Optimierungsrate</h2>
-                <p>🔄 Kommt demnächst</p>
+            <div class="controls">
+                <div id="optLastUpdated" class="last-updated"></div>
+                <div class="date-controls">
+                    <button class="date-filter-btn" id="optYesterdayBtn">Gestern</button>
+                    <button class="date-filter-btn" id="optWeekBtn">Letzte Woche</button>
+                    <button class="date-filter-btn" id="optMonthBtn">Letzter Monat</button>
+                    <button class="date-filter-btn" id="optAllBtn">Seit Beginn</button>
+                    <input type="date" id="optDateInput" class="date-input">
+                </div>
             </div>
+
+            <div class="chart-container">
+                <canvas id="optTrendChart"></canvas>
+            </div>
+
+            <div id="optStats" class="stats-cards">
+                <div class="card">
+                    <div class="label">Ø SEO Score</div>
+                    <div class="value" id="optStatAvg">—</div>
+                </div>
+                <div class="card">
+                    <div class="label">Bester Artikel</div>
+                    <div class="value" id="optStatMax">—</div>
+                </div>
+                <div class="card">
+                    <div class="label">Schwächster Artikel</div>
+                    <div class="value" id="optStatMin">—</div>
+                </div>
+                <div class="card">
+                    <div class="label">Artikel bewertet</div>
+                    <div class="value" id="optStatTotal">—</div>
+                </div>
+            </div>
+
+            <section class="articles-section">
+                <h2>SEO Score pro Artikel <span style="font-size:14px;font-weight:400;color:#999;">(schlechteste zuerst)</span></h2>
+                <table id="optTable" class="articles-table">
+                    <thead>
+                        <tr>
+                            <th>Artikel</th>
+                            <th>Score</th>
+                            <th title="H3-Überschriften + KW in H3 + Einzigartige H3">H3</th>
+                            <th title="Links (max 8) + Kein Link 1. Absatz + Keine Duplikate + Ankertexte">Links</th>
+                            <th title="Tabelle, Video, Widget, Liste, Infografik">Media</th>
+                            <th title="KW im Seitentitel + Titel-Länge + Meta-Description + Caption">Technik</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody id="optBody"></tbody>
+                </table>
+                <div id="optNoDataMsg" class="no-data">Keine Daten verfügbar</div>
+            </section>
         </div>
     </div>
 

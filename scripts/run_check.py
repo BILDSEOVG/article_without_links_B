@@ -18,6 +18,144 @@ USER_AGENT = "SitemapLinkChecker/1.0 (Firefox)"
 TZ_BERLIN = pytz.timezone("Europe/Berlin")
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
 
+GERMAN_STOP_WORDS = {
+    "dass", "oder", "aber", "auch", "nach", "beim", "sein", "ihre", "ihren",
+    "haben", "hatte", "wird", "wurden", "wurde", "durch", "über", "unter",
+    "von", "vom", "dem", "den", "der", "die", "das", "eine", "einen", "einer",
+    "eines", "wenn", "weil", "nicht", "noch", "mehr", "sehr", "schon",
+    "bereits", "immer", "wieder", "dann", "sind", "diese", "diesem", "diesen",
+    "dieser", "dieses", "für", "mit", "und", "sich", "zum", "zur", "wie",
+    "hier", "dort", "alle", "alles", "kein", "keine", "keinen", "keiner",
+    "keines", "ohne", "gegen", "wegen", "trotz", "doch", "damit", "dabei",
+    "dazu", "davon", "darum", "daher", "daran", "darauf", "darüber",
+    "darunter", "habe", "konnte", "konnten", "musste", "mussten", "sollte",
+    "sollten", "wollte", "wollten", "durfte", "durften", "werden", "war",
+    "waren", "wäre", "wären", "beim", "kann",
+}
+
+GENERIC_ANCHOR_TEXTS = {
+    "hier", "hier klicken", "mehr", "mehr lesen", "weiter", "weiter lesen",
+    "lesen", "öffnen", "zum artikel", "artikel", "click here", "read more",
+    "jetzt", "jetzt lesen", "jetzt klicken", "bitte", "link", "weiterlesen",
+    "zum beitrag", "zum thema", "mehr dazu", "alle infos", "hier informieren",
+    ">>>", "»", "«",
+}
+
+
+def _extract_keywords(text):
+    keywords = set()
+    for word in text.lower().split():
+        word = word.strip('.,!?:;-"\'()[]{}»«')
+        if len(word) >= 4 and word not in GERMAN_STOP_WORDS:
+            keywords.add(word)
+    return keywords
+
+
+def _calculate_seo_score(article):
+    h2_text = article.get("h2_full_text", "") or article.get("h1_text", "")
+    keywords = _extract_keywords(h2_text)
+    score = 0
+    criteria = {}
+
+    h3_headings = article.get("h3_headings", [])
+
+    # H3 count: 1 per H3
+    h3_pts = len(h3_headings)
+    criteria["h3_count"] = {"points": h3_pts, "value": h3_pts}
+    score += h3_pts
+
+    # Links: 1 per link, max 8
+    link_count = article.get("link_count", 0)
+    link_pts = min(link_count, 8)
+    criteria["links"] = {"points": link_pts, "value": link_count, "max": 8}
+    score += link_pts
+
+    # Keyword in H3: 1 per H3 with keyword
+    kw_h3 = sum(1 for h3 in h3_headings if keywords and any(kw in h3.lower() for kw in keywords))
+    criteria["keyword_in_h3"] = {"points": kw_h3, "value": kw_h3}
+    score += kw_h3
+
+    # Rich media: 1 per type (table, video, widget, list, infographic)
+    rich_pts = 0
+    rich_detail = {}
+    for key, label in [
+        ("has_table", "table"), ("embedded_video_count", "video"),
+        ("has_widget", "widget"), ("has_list", "list"), ("has_infographic", "infographic"),
+    ]:
+        present = bool(article.get(key, 0))
+        if present:
+            rich_pts += 1
+        rich_detail[label] = present
+    criteria["rich_media"] = {"points": rich_pts, "detail": rich_detail}
+    score += rich_pts
+
+    # No link in first paragraph: 1 point
+    no_fp = 1 if article.get("first_paragraph_link_count", 0) == 0 else 0
+    criteria["no_first_para_link"] = {"points": no_fp}
+    score += no_fp
+
+    # No duplicate links: 1 point
+    links_detail = article.get("links_detail", [])
+    hrefs = [l.get("href", "") for l in links_detail]
+    no_dupes = 1 if not hrefs or len(hrefs) == len(set(hrefs)) else 0
+    criteria["no_duplicate_links"] = {"points": no_dupes}
+    score += no_dupes
+
+    # Keyword in image captions: 1 point
+    img_captions = article.get("img_captions", [])
+    caption_text = " ".join(img_captions).lower()
+    kw_caption = 1 if keywords and img_captions and any(kw in caption_text for kw in keywords) else 0
+    criteria["keyword_in_caption"] = {"points": kw_caption}
+    score += kw_caption
+
+    # Good anchor texts: 1 per specific, non-generic anchor
+    anchor_pts = sum(
+        1 for l in links_detail
+        if l.get("anchor_text", "").strip().lower() not in GENERIC_ANCHOR_TEXTS
+        and len(l.get("anchor_text", "").strip()) >= 3
+    )
+    criteria["anchor_texts"] = {"points": anchor_pts, "value": anchor_pts}
+    score += anchor_pts
+
+    # Main keyword in page title: 1 point
+    page_title = article.get("page_title", "").lower()
+    kw_in_title = 1 if keywords and page_title and any(kw in page_title for kw in keywords) else 0
+    criteria["keyword_in_title"] = {"points": kw_in_title}
+    score += kw_in_title
+
+    # Page title < 100 chars: 1 point
+    title_len = len(article.get("page_title", ""))
+    title_ok = 1 if 0 < title_len < 100 else 0
+    criteria["title_length"] = {"points": title_ok, "value": title_len}
+    score += title_ok
+
+    # Meta description < 160 chars: 1 point
+    meta_desc = article.get("meta_description", "")
+    meta_len = len(meta_desc)
+    meta_ok = 1 if 0 < meta_len < 160 else 0
+    criteria["meta_desc_length"] = {"points": meta_ok, "value": meta_len}
+    score += meta_ok
+
+    # Meta description adds info beyond title: 1 point
+    meta_extra = 0
+    if meta_desc and page_title:
+        title_words = {w.strip(".,!?") for w in page_title.lower().split()}
+        desc_words = {w.strip(".,!?") for w in meta_desc.lower().split()}
+        extra_words = desc_words - title_words - GERMAN_STOP_WORDS
+        meta_extra = 1 if len(extra_words) >= 3 else 0
+    criteria["meta_desc_extra"] = {"points": meta_extra}
+    score += meta_extra
+
+    # Unique H3s (≥3 words or contains digit): 1 each
+    unique_h3 = sum(
+        1 for h3 in h3_headings
+        if len(h3.split()) >= 3 or any(c.isdigit() for c in h3)
+    )
+    criteria["unique_h3"] = {"points": unique_h3, "value": unique_h3}
+    score += unique_h3
+
+    return {"total": score, "criteria": criteria}
+
 def _get_category_from_url(url):
     path = urlparse(url).path
     parts = path.split('/')
@@ -112,14 +250,16 @@ def _scrape_url(url):
         first_paragraph_link_count = 0
         internal_links = 0
         external_links = 0
+        links_detail = []
 
         if main and not is_video:
             text_links = main.find_all("a", class_="text-link")
 
             for link in text_links:
-                href = link.get("href", "").lower()
+                href = link.get("href", "")
+                href_lower = href.lower()
 
-                if "images." in href or "bildstatic.de" in href:
+                if "images." in href_lower or "bildstatic.de" in href_lower:
                     continue
 
                 parent = link.find_parent("div", class_="video-centre")
@@ -127,8 +267,9 @@ def _scrape_url(url):
                     continue
 
                 link_count += 1
+                links_detail.append({"href": href, "anchor_text": link.get_text(strip=True)})
 
-                if href.startswith("/") or "bild.de" in href:
+                if href_lower.startswith("/") or "bild.de" in href_lower:
                     internal_links += 1
                 else:
                     external_links += 1
@@ -142,6 +283,51 @@ def _scrape_url(url):
                         parent = link.find_parent("div", class_="video-centre")
                         if not parent:
                             first_paragraph_link_count += 1
+
+        # H3 headings
+        h3_headings = []
+        if main:
+            for h3 in main.find_all("h3"):
+                text = h3.get_text(strip=True)
+                if text:
+                    h3_headings.append(text)
+
+        # Meta description
+        meta_description = ""
+        meta_desc_tag = (
+            soup.find("meta", attrs={"name": "description"}) or
+            soup.find("meta", property="og:description")
+        )
+        if meta_desc_tag:
+            meta_description = meta_desc_tag.get("content", "")
+
+        # Page title tag
+        page_title = ""
+        title_tag_el = soup.find("title")
+        if title_tag_el:
+            page_title = title_tag_el.get_text(strip=True)
+
+        # Image captions
+        img_captions = []
+        if main:
+            for figcaption in main.find_all("figcaption"):
+                text = figcaption.get_text(strip=True)
+                if text:
+                    img_captions.append(text)
+
+        # Rich media detection via HTML string
+        has_table = False
+        has_list = False
+        embedded_video_count = 0
+        has_widget = False
+        has_infographic = False
+        if main and not is_video:
+            main_html = str(main).lower()
+            has_table = "<table" in main_html
+            has_list = "<ul" in main_html or "<ol" in main_html
+            embedded_video_count = main_html.count("video-centre")
+            has_widget = "<iframe" in main_html or "twitter-tweet" in main_html or "instagram-media" in main_html
+            has_infographic = "<svg" in main_html or "infografik" in main_html or "infographic" in main_html
 
         return {
             "url": url,
@@ -157,6 +343,16 @@ def _scrape_url(url):
             "h2_headline": h2_headline,
             "h2_full_text": h2_full_text,
             "h1_h2_similarity": h1_h2_similarity,
+            "links_detail": links_detail,
+            "h3_headings": h3_headings,
+            "meta_description": meta_description,
+            "page_title": page_title,
+            "img_captions": img_captions,
+            "has_table": has_table,
+            "has_list": has_list,
+            "embedded_video_count": embedded_video_count,
+            "has_widget": has_widget,
+            "has_infographic": has_infographic,
             "error": None
         }
     except Exception as e:
@@ -174,6 +370,16 @@ def _scrape_url(url):
             "h2_kicker": "",
             "h2_headline": "",
             "h2_full_text": "",
+            "links_detail": [],
+            "h3_headings": [],
+            "meta_description": "",
+            "page_title": "",
+            "img_captions": [],
+            "has_table": False,
+            "has_list": False,
+            "embedded_video_count": 0,
+            "has_widget": False,
+            "has_infographic": False,
             "h1_h2_similarity": 0.0,
             "error": str(e)
         }
@@ -384,6 +590,13 @@ def run_check():
         reverse=True
     )
 
+    # SEO score per article
+    for article in h1_h2_articles:
+        article["seo_score"] = _calculate_seo_score(article)
+
+    seo_scores = [a["seo_score"]["total"] for a in h1_h2_articles]
+    avg_seo_score = round(sum(seo_scores) / len(seo_scores), 1) if seo_scores else 0.0
+
     daily_data = {
         "stats": {
             "run_date": run_date,
@@ -446,6 +659,9 @@ def run_check():
         "h1_h2": {
             "pct_above_90": h1_h2_stats["pct_above_90"],
             "pct_above_80_plus": h1_h2_stats["pct_above_80_plus"]
+        },
+        "seo_score": {
+            "avg": avg_seo_score
         }
     }
 
