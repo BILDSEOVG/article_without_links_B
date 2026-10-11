@@ -1,19 +1,5 @@
 [
   {
-    "run_date": "2026-09-10",
-    "total": 224,
-    "with_links": 210,
-    "without_links": 14,
-    "pct_without_links": 6.25,
-    "h1_h2": {
-      "pct_above_90": 17.4,
-      "pct_above_80_plus": 24.1
-    },
-    "seo_score": {
-      "avg": 19.3
-    }
-  },
-  {
     "run_date": "2026-09-11",
     "total": 221,
     "with_links": 205,
@@ -417,6 +403,20 @@
     },
     "seo_score": {
       "avg": 18.2
+    }
+  },
+  {
+    "run_date": "2026-10-10",
+    "total": 148,
+    "with_links": 137,
+    "without_links": 11,
+    "pct_without_links": 7.4324324324324325,
+    "h1_h2": {
+      "pct_above_90": 18.2,
+      "pct_above_80_plus": 24.3
+    },
+    "seo_score": {
+      "avg": 18.3
     }
   }
 ]
